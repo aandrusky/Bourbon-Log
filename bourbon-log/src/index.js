@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import {BourbonLog} from "./components/BourbonLog"
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
