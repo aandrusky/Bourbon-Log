@@ -11,7 +11,8 @@ export const Register = (props) => {
     const conflictDialog = useRef()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
+        // If your json-server URL is different, please change it below!
+        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
             .then(_ => _.json())
             .then(user => !!user.length)
     }
@@ -23,7 +24,8 @@ export const Register = (props) => {
             existingUserCheck()
                 .then((userExists) => {
                     if (!userExists) {
-                        fetch("http://localhost:8088/customers", {
+                        // If your json-server URL is different, please change it below!
+                        fetch("http://localhost:8088/users", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -37,7 +39,8 @@ export const Register = (props) => {
                             .then(_ => _.json())
                             .then(createdUser => {
                                 if (createdUser.hasOwnProperty("id")) {
-                                    localStorage.setItem("kennel_customer", createdUser.id)
+                                    // The user id is saved under the key app_user_id in local Storage. Change below if needed!
+                                    localStorage.setItem("app_user_id", createdUser.id)
                                     props.history.push("/")
                                 }
                             })
@@ -65,7 +68,7 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for NSS Kennels</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />

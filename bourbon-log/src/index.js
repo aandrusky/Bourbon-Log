@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {BourbonLog} from "./components/BourbonLog"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <BourbonLog />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

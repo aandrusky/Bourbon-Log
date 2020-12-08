@@ -1,0 +1,63 @@
+{
+    "Users": [
+        {
+            "id": 1,
+            "userName": "Alan",
+            "email": "alanandrusky@gmail.com",
+            "password": 123
+        },
+        {
+            "id": 2,
+            "userName": "Elizabeth",
+            "email": "ehubert4545@gmail.com",
+            "password": 123
+        }
+    ],
+    "Logs": [
+        {
+            "id": 1,
+            "userId": 1,
+            "recordCreation": "2020-11-11",
+            "bourbonName": "Stagg Jr.",
+            "distiller": "Buffalo Trace Distillery",
+            "proof": "130.2",
+            "batchNum": "14",
+            "owned": true,
+            "rating": "10/10",
+            "photo": ""
+        },
+        {
+            "id": 2,
+            "userId": 2,
+            "recordCreation": "2019-12-11",
+            "bourbonName": "Elijah Craig Barrel Proof",
+            "distiller": "Heaven Hill Distillery",
+            "proof": "122.2",
+            "batchNum": "B519",
+            "owned": true,
+            "rating": "9/10",
+            "photo": ""
+        }
+    ],
+    "FlavorSums": [
+        {
+        "id": 1,
+        "flavorNoteId": 1,
+        "flavorCounts": 1,
+        "logId": 1
+        }
+    ],
+    "flavorNotes": [
+        {
+            "id": 1,
+            "flavor": "Maple"
+        }
+    ],
+    "Recommendations": [
+        {
+            "id": 1,
+            "userId": "Maple",
+            "logId": "Maple"
+        }
+    ]
+}
