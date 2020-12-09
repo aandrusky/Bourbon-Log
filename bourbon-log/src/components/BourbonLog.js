@@ -12,7 +12,7 @@ export const BourbonLog = () => (
     if (localStorage.getItem("app_user_id")) {
         return (
             <>
-                //Components that are rendered when the user is authenticated go inside this React fragment
+                //THIS WILL BE MY HOMEPAGE WITH "VIEW LIST" and "+Log" BUTTONS
             </>
         )
     } else {
