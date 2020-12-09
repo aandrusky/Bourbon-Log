@@ -1,13 +1,27 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {LogContext} from './LogProvider'
+
+
 
 export const BourbonList = () => {
 
-    const {getLogs} = useContext(LogContext)
-    
+    useEffect(() => {
+        getLogs()
+    }, [])
+
+    const {getLogs, Logs} = useContext(LogContext)
+
     return (
         <>
-        IM YOUR BOURBON LIST
-        </>
+        <h1>BourbonList Test</h1>
+        <div>
+            {
+                Logs.map(logObj => {
+     
+                return  logObj
+                })
+            }
+        </div>
+    </>
     )
 }
