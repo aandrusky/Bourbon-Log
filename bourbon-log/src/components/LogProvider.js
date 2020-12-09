@@ -14,7 +14,7 @@ export const LogProvider = (props) => {
         // .then(parsedLogs => setLogs(parsedLogs))
     }
   
-    const addLog = log => {
+    const AddLog = log => {
       return fetch("http://localhost:8088/Logs", {
         method: "POST",
         headers: {
@@ -28,7 +28,7 @@ export const LogProvider = (props) => {
     return (
       <LogContext.Provider value={
         {
-        logs, addLog, getLogs
+        logs, AddLog, getLogs
         }
       }>
         {props.children}
