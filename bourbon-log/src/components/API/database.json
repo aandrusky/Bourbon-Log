@@ -1,5 +1,5 @@
 {
-  "Users": [
+  "users": [
     {
       "email": "alanandrusky@gmail.com",
       "password": "123",
@@ -19,7 +19,7 @@
       "id": 3
     }
   ],
-  "Logs": [
+  "logs": [
     {
       "id": 1,
       "userId": 1,
@@ -45,7 +45,7 @@
       "photo": ""
     }
   ],
-  "FlavorSums": [
+  "flavorsums": [
     {
       "id": 1,
       "flavorNoteId": 1,
@@ -53,13 +53,13 @@
       "logId": 1
     }
   ],
-  "FlavorNotes": [
+  "flavornotes": [
     {
       "id": 1,
       "flavor": "Maple"
     }
   ],
-  "Recommendations": [
+  "recommendations": [
     {
       "id": 1,
       "userId": "Maple",

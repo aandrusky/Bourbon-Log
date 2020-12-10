@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { ApplicationViews } from "./ApplicationViews"
-import { Home } from "./Home"
+// import { Home } from "./Home"
 
 
 
@@ -14,8 +14,7 @@ export const BourbonLog = (props) => (
     if (localStorage.getItem("app_user_id")) {
         return (
             <div className="app">
-                <Home /> 
-                <ApplicationViews/>
+                 <ApplicationViews/>        
             </div>
         )
     } else {

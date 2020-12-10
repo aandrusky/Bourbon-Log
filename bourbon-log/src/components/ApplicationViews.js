@@ -1,23 +1,22 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
-import { LogForm } from './BourbonForm'
-import { BourbonList } from './BourbonList'
-import { Home } from './Home'
-import { LogProvider } from "./LogProvider"
+import { BourbonForm } from './Bourbon/BourbonForm'
+import { BourbonList } from './Bourbon/BourbonList'
+import { Home } from './Nav/Home'
+import { LogProvider } from "./Bourbon/LogProvider"
 
 export const ApplicationViews = (props) => {
     return (
         <>
-        
         <LogProvider> 
-        <Route exact path="/Home" render={
+        <Route exact path="/" render={
             props => <Home {...props} 
              />
          } />
-         <Route path ="/Home/NewLog" render={
-             props => <LogForm {...props} />
+         <Route path ="/NewLog" render={
+             props => <BourbonForm {...props} />
          } />
-         <Route path ="/Home/ViewList" render={
+         <Route path ="/ViewList" render={
              props => <BourbonList {...props} />
          } />
         </LogProvider>

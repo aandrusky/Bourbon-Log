@@ -5,20 +5,21 @@ import {LogContext} from './LogProvider'
 
 export const BourbonList = () => {
 
+    const {getLogs, logs} = useContext(LogContext)
+    
     useEffect(() => {
         getLogs()
     }, [])
 
-    const {getLogs, Logs} = useContext(LogContext)
 
     return (
         <>
         <h1>BourbonList Test</h1>
         <div>
             {
-                Logs.map(logObj => {
+                logs.map(logObj => {
      
-                return  logObj
+                return  <p>{logObj.bourbonName}</p>
                 })
             }
         </div>

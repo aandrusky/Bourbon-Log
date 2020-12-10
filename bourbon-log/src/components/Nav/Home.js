@@ -1,16 +1,16 @@
 import React from 'react';
-import { Logout } from "./auth/Logout"
+import { Logout } from "../auth/Logout"
 
 export const Home = (props) => {
 
     return (
         <>
             <div className="Home-Buttons">
-                <button className="List-Button" onClick={() => props.history.push("/Home/ViewList")}>
+                <button className="List-Button" onClick={() => props.history.push("/ViewList")}>
                     View List
                 </button>
             
-                <button className="Log-Button" onClick={() => props.history.push("/Home/NewLog")}>
+                <button className="Log-Button" onClick={() => props.history.push("/NewLog")}>
                     New Log
                 </button>
             
