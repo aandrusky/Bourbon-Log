@@ -14,23 +14,29 @@ export const BourbonForm = (props) => {
     const proof = useRef(null)
     const age = useRef(null)
     const batchNum = useRef(null)
+    const price = useRef(null)
     const owned = useRef(null)
     const rating = useRef(null)
+    const notes = useRef(null)
     
     const PostSavedForm = () => {
-      if (bourbonName === "") {
+      if (bourbonName.current.value === "") {
         window.alert("Please add the name of your Bourbon to save a log")
       } else {
-        AddLog({
-          bourbonName: bourbonName.current,
-          distiller: distiller.current,
-          proof: proof.current,
-          age: age.current,
-          batchNum: batchNum.current,
-          owned: owned.current,
-          rating: rating.current
-        })
-        .then(() => props.history.push("/ViewList"))
+        const newBourbon = {
+          bourbonName: bourbonName.current.value,
+          distiller: distiller.current.value,
+          proof: proof.current.value,
+          age: age.current.value,
+          batchNum: batchNum.current.value,
+          owned: owned.current.value,
+          price: price.current.value,
+          notes: notes.current.value,
+          rating: rating.current.value
+        } 
+        console.log("this is newBourbon", newBourbon)
+         AddLog(newBourbon)
+        // .then(() => props.history.push("/ViewList"))
       }
       
     }
@@ -71,19 +77,20 @@ return (
   <Form.Group controlId="ownedSwitch">
     <Form.Label>Owned?</Form.Label>
     <Form.Control ref={owned} />
-    <Form.Switch type="switch" label="Yes" />
+    <Form.Check 
+      type="switch" label="Yes" />
   </Form.Group>
 
 
 
   <Form.Group controlId="formPrice">
     <Form.Label>Price Paid</Form.Label>
-    <Form.Control type="text" ref={bourbonName} placeholder="Price for bottle or pour here" />
+    <Form.Control type="text" ref={price} placeholder="Price for bottle or pour here" />
   </Form.Group>
 
   <Form.Group controlId="formNotes">
     <Form.Label>Notes</Form.Label>
-    <Form.Control type="text" ref={bourbonName} as="textarea" rows={3} placeholder="Overall impression here" />
+    <Form.Control type="text" ref={notes} as="textarea" rows={3} placeholder="Overall impression here" />
   </Form.Group>
   
   <h5>Tasting Notes</h5>
@@ -134,7 +141,11 @@ return (
     <Form.Control type="text" ref={rating} placeholder="How would you rate this bottle?" />
   </Form.Group>
 
-  <Button onClick={()=> PostSavedForm()} variant="primary" size="lg" type="submit" block> 
+  <Button onClick={(evt)=> 
+  { evt.preventDefault()
+    PostSavedForm()
+  }}
+     variant="primary" size="lg" type="submit" block> 
     Save Log 
   </Button>
 </Form>
