@@ -36,9 +36,19 @@ return (
     <Form.Control type="text" placeholder="Proof # here" />
   </Form.Group>
 
-  <Form.Group controlId="formProof">
+  <Form.Group controlId="formAge">
+    <Form.Label>Age</Form.Label>
+    <Form.Control type="text" placeholder="Age of bourbon here" />
+  </Form.Group>
+
+  <Form.Group controlId="formBatch">
     <Form.Label>Batch Number</Form.Label>
     <Form.Control type="text" placeholder="Batch number/name here" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Label>Owned?</Form.Label>
+    <Form.Check type="checkbox" label="Yes" />
   </Form.Group>
 
   <Form.Group controlId="formPrice">
@@ -46,14 +56,51 @@ return (
     <Form.Control type="text" placeholder="Price for bottle or pour here" />
   </Form.Group>
 
-  <Form.Group controlId="formAge">
-    <Form.Label>Age</Form.Label>
-    <Form.Control type="text" placeholder="Age of bourbon here" />
+  <Form.Group controlId="formNotes">
+    <Form.Label>Notes</Form.Label>
+    <Form.Control type="text" as="textarea" rows={3} placeholder="Overall impression here" />
   </Form.Group>
   
   <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Vanilla" />
+    <Form.Check type="checkbox" label="Fruit" />
   </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Floral" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Oak" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Nuts" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Spicy" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Sweet" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Bread" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Earthy" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Grain" />
+  </Form.Group>
+
+  <Form.Group controlId="flavorCheckbox">
+    <Form.Check type="checkbox" label="Chocolate" />
+  </Form.Group>
+
   <Button variant="primary" type="submit">
     Save Log
   </Button>

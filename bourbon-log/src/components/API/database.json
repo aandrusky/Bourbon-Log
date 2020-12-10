@@ -27,6 +27,7 @@
       "bourbonName": "Stagg Jr.",
       "distiller": "Buffalo Trace Distillery",
       "proof": "130.2",
+      "age": "",
       "batchNum": "14",
       "owned": true,
       "rating": "10/10",
@@ -39,6 +40,7 @@
       "bourbonName": "Elijah Craig Barrel Proof",
       "distiller": "Heaven Hill Distillery",
       "proof": "122.2",
+      "age": "12 years",
       "batchNum": "B519",
       "owned": true,
       "rating": "9/10",
@@ -49,21 +51,63 @@
     {
       "id": 1,
       "flavorNoteId": 1,
-      "flavorCounts": 1,
+      "flavorCounts": 3,
+      "logId": 1
+    },
+    {
+      "id": 2,
+      "flavorNoteId": 3,
+      "flavorCounts": 3,
       "logId": 1
     }
   ],
   "flavornotes": [
     {
       "id": 1,
+      "flavor": "Fruit"
+    },
+    {
+      "id": 2,
+      "flavor": "Floral"
+    },
+    {
+      "id": 3,
+      "flavor": "Oak"
+    },
+    {
+      "id": 4,
+      "flavor": "Nuts"
+    },
+    {
+      "id": 5,
+      "flavor": "Spicy"
+    },
+    {
+      "id": 6,
       "flavor": "Maple"
+    },
+    {
+      "id": 7,
+      "flavor": "Sweet"
+    },
+    {
+      "id": 8,
+      "flavor": "Bread"
+    },
+    {
+      "id": 9,
+      "flavor": "Earthy"
+    },
+    {
+      "id": 10,
+      "flavor": "Grain"
     }
   ],
   "recommendations": [
     {
       "id": 1,
-      "userId": "Maple",
-      "logId": "Maple"
+      "userId": 1,
+      "logId": 2
     }
   ]
 }
