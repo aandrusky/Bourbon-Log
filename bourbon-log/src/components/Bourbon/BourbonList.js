@@ -3,6 +3,7 @@ import { LogContext } from './LogProvider'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Modal from 'react-bootstrap/Modal'
+import Alert from 'react-bootstrap/Alert'
 
 
 
@@ -14,6 +15,7 @@ export const BourbonList = (props) => {
 
     const [selectedBourbon, setSelectedBourbon] = useState({})
     const [show, setShow] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = (logObj) => {
         setSelectedBourbon(logObj)
@@ -33,67 +35,101 @@ export const BourbonList = (props) => {
                     logs.map(logObj => {
 
                         return (
-                            
-                        
 
-                                <Card key={logObj.id} style={{ width: '18rem' }}>
 
-                                    {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                                    <Card.Body>
-                                        <Card.Title>{logObj.bourbonName}</Card.Title>
-                                        <Card.Text>
+
+                            <Card key={logObj.id} style={{ width: '18rem' }}>
+
+                                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                                <Card.Body>
+                                    <Card.Title>{logObj.bourbonName}</Card.Title>
+                                    <Card.Text>
                                         <p>Batch {logObj.batchNum}</p>
                                         <p>Proof {logObj.proof}</p>
-                                        </Card.Text>
-                                        <Button onClick={() => handleShow(logObj)} variant="primary">View Log</Button>
-                                    </Card.Body>
-                                </Card>
+                                    </Card.Text>
+                                    <Button onClick={() => handleShow(logObj)} variant="primary">View Log</Button>
+                                </Card.Body>
+                            </Card>
 
-                                    )
-                                    })
-                                    }
+                        )
+                    })
+                }
 
-                                    { selectedBourbon.id 
-                               ? <Modal show={show} onHide={handleClose}
-                                    {...props}
-                                    size="lg"
-                                    aria-labelledby="contained-modal-title-vcenter"
-                                    centered>
-     
-                                    <Modal.Header closeButton>
-                                         <Modal.Title>{selectedBourbon.bourbonName}</Modal.Title>
-                                        
-                                            
-                                    </Modal.Header>
-                                    <Modal.Body>
-                                        <p>{selectedBourbon.distiller} </p>
-                                      <p>Proof: {selectedBourbon.proof} </p>
-                                      <p> Age: {selectedBourbon.age} years </p>
-                                      <p> Batch #: {selectedBourbon.batchNum} </p>
-                                      <p> Rated: {selectedBourbon.rating} </p>
-                                        
-                                        
-                                    </Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleClose}>
-                                            Close
+                {selectedBourbon.id
+                    ? <Modal show={show} onHide={handleClose}
+                        {...props}
+                        size="lg"
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered>
+
+                        <Modal.Header closeButton>
+                            <Modal.Title>{selectedBourbon.bourbonName}</Modal.Title>
+
+
+                        </Modal.Header>
+                        <Modal.Body>
+                            <p>{selectedBourbon.distiller} </p>
+                            <p>Proof: {selectedBourbon.proof} </p>
+                            <p> Age: {selectedBourbon.age} years </p>
+                            <p> Batch #: {selectedBourbon.batchNum} </p>
+                            <p> Rated: {selectedBourbon.rating} </p>
+
+
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Close
                                         </Button>
-                                        <Button className="deleteButton" variant="danger" onClick={() => {
+
+
+
+
+
+                            <Alert show={showAlert} variant="danger">
+                                <Alert.Heading>Are you sure?</Alert.Heading>
+                                <p>
+                                    This action will result in permanant deletion of this bourbon log! Are you sure you want to continue?
+                                </p>
+                                <hr />
+                                <div className="d-flex justify-content-end">
+                                    <Button onClick={() => {
+
+                                        setShowAlert(false)
+                                        handleClose()
                                         DeleteLog(selectedBourbon.id)
-                                        .then(() => {
-                                            props.history.push("/ViewList")
+                                            .then(() => {
+                                                props.history.push("/ViewList")
+
                                             })
-                                             }}>
-                                            Delete
+                                    }}
+                                        variant="danger">
+                                        Yes, delete permanantly
+                                    </Button>
+                                </div>
+                            </Alert>
+
+                            {!showAlert && <Button variant="danger" onClick={() => setShowAlert(true)}>Delete</Button>}
+
+
+
+                            <Button variant="primary" onClick={handleClose}>
+                                Edit
                                         </Button>
-                                        <Button variant="primary" onClick={handleClose}>
-                                            Edit
-                                        </Button>
-                                    </Modal.Footer>
-                                </Modal>
-                            :""}
+                        </Modal.Footer>
+                    </Modal>
+                    : ""}
             </div>
         </>
     )
 }
 
+{/* <Button className="deleteButton" variant="danger" onClick={() => {
+                                            
+    handleClose()
+    DeleteLog(selectedBourbon.id)
+    .then(() => {
+        props.history.push("/ViewList")
+        })
+         }}>
+        Delete
+    </Button> */}
