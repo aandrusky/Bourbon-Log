@@ -77,9 +77,12 @@ export const BourbonList = (props) => {
 
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
+                            <Button variant="secondary" onClick={() => {
+                                setShowAlert(false)
+                                handleClose()
+                            }}>     
                                 Close
-                                        </Button>
+                            </Button>
 
 
 
@@ -92,6 +95,9 @@ export const BourbonList = (props) => {
                                 </p>
                                 <hr />
                                 <div className="d-flex justify-content-end">
+                                    <Button variant="secondary" onClick={() => setShowAlert(false)} >
+                                        No, go back
+                                    </Button>
                                     <Button onClick={() => {
 
                                         setShowAlert(false)
@@ -105,6 +111,7 @@ export const BourbonList = (props) => {
                                         variant="danger">
                                         Yes, delete permanantly
                                     </Button>
+                                    
                                 </div>
                             </Alert>
 
