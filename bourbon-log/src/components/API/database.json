@@ -47,14 +47,14 @@
       "photo": ""
     },
     {
-      "bourbonName": "Testing",
-      "distiller": "Testing",
-      "proof": "100",
-      "age": "Test",
-      "batchNum": "Testing",
-      "owned": "Yes",
-      "price": "100",
-      "notes": "asdfasdf",
+      "bourbonName": "George T. Stagg",
+      "distiller": "Buffalo Trace Distillery",
+      "proof": "132",
+      "age": "12",
+      "batchNum": "2020",
+      "owned": true,
+      "price": "120",
+      "notes": "great",
       "rating": "10",
       "id": 3
     }

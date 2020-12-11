@@ -8,6 +8,9 @@ export const BourbonForm = (props) => {
 
     const {AddLog} = useContext(LogContext)
 
+    // const [check, setCheck] = useState(false);
+    // const handleCheck = () => setCheck(true);
+
     // const recordCreation = useRef(null)
     const bourbonName = useRef(null)
     const distiller = useRef(null)
@@ -22,14 +25,14 @@ export const BourbonForm = (props) => {
     const PostSavedForm = () => {
       if (bourbonName.current.value === "") {
         window.alert("Please add the name of your Bourbon to save a log")
-      } else {
+      } else { 
         const newBourbon = {
           bourbonName: bourbonName.current.value,
           distiller: distiller.current.value,
           proof: proof.current.value,
           age: age.current.value,
           batchNum: batchNum.current.value,
-          owned: owned.current.value,
+          owned: owned.current.checked,
           price: price.current.value,
           notes: notes.current.value,
           rating: rating.current.value
@@ -73,15 +76,17 @@ return (
   </Form.Group>
   
 
-
+  <h6>Do you own this bottle?</h6>
   <Form.Group controlId="ownedSwitch">
-    <Form.Label>Owned?</Form.Label>
-    <Form.Control ref={owned} />
-    <Form.Check 
-      type="switch" label="Yes" />
+  <Form.Check 
+    type="switch"
+    id="ownedIndicator-switch"
+    label="Yes!"
+    ref={owned}
+  />
   </Form.Group>
 
-
+  
 
   <Form.Group controlId="formPrice">
     <Form.Label>Price Paid</Form.Label>
@@ -143,7 +148,7 @@ return (
 
   <Button onClick={(evt)=> 
   { evt.preventDefault()
-    PostSavedForm()
+    PostSavedForm() 
   }}
      variant="primary" size="lg" type="submit" block> 
     Save Log 
