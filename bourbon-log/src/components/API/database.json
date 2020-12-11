@@ -21,19 +21,6 @@
   ],
   "logs": [
     {
-      "id": 1,
-      "userId": 1,
-      "recordCreation": "2020-11-11",
-      "bourbonName": "Stagg Jr.",
-      "distiller": "Buffalo Trace Distillery",
-      "proof": "130.2",
-      "age": "",
-      "batchNum": "14",
-      "owned": true,
-      "rating": "10/10",
-      "photo": ""
-    },
-    {
       "id": 2,
       "userId": 2,
       "recordCreation": "2019-12-11",
@@ -45,34 +32,9 @@
       "owned": true,
       "rating": "9/10",
       "photo": ""
-    },
-    {
-      "bourbonName": "George T. Stagg",
-      "distiller": "Buffalo Trace Distillery",
-      "proof": "132",
-      "age": "12",
-      "batchNum": "2020",
-      "owned": true,
-      "price": "120",
-      "notes": "great",
-      "rating": "10",
-      "id": 3
     }
   ],
-  "flavorsums": [
-    {
-      "id": 1,
-      "flavorNoteId": 1,
-      "flavorCounts": 3,
-      "logId": 1
-    },
-    {
-      "id": 2,
-      "flavorNoteId": 3,
-      "flavorCounts": 3,
-      "logId": 1
-    }
-  ],
+  "flavorsums": [],
   "flavornotes": [
     {
       "id": 1,

@@ -24,11 +24,18 @@ export const LogProvider = (props) => {
       })
         .then(getLogs)
     }
+
+    const DeleteLog = log => {
+      return fetch(`http://localhost:8088/Logs/${log}`, {
+          method: "DELETE"
+      })
+          .then(getLogs)
+  }
   
     return (
       <LogContext.Provider value={
         {
-        logs, AddLog, getLogs
+        logs, AddLog, getLogs, DeleteLog
         }
       }>
         {props.children}

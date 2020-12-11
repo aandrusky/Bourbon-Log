@@ -10,7 +10,7 @@ import Modal from 'react-bootstrap/Modal'
 
 export const BourbonList = (props) => {
 
-    const { getLogs, logs } = useContext(LogContext)
+    const { DeleteLog, getLogs, logs } = useContext(LogContext)
 
     const [selectedBourbon, setSelectedBourbon] = useState({})
     const [show, setShow] = useState(false);
@@ -78,7 +78,12 @@ export const BourbonList = (props) => {
                                         <Button variant="secondary" onClick={handleClose}>
                                             Close
                                         </Button>
-                                        <Button variant="primary" onClick={handleClose}>
+                                        <Button className="deleteButton" variant="danger" onClick={() => {
+                                        DeleteLog(selectedBourbon.id)
+                                        .then(() => {
+                                            props.history.push("/ViewList")
+                                            })
+                                             }}>
                                             Delete
                                         </Button>
                                         <Button variant="primary" onClick={handleClose}>

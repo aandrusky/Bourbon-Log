@@ -8,8 +8,7 @@ export const BourbonForm = (props) => {
 
     const {AddLog} = useContext(LogContext)
 
-    // const [check, setCheck] = useState(false);
-    // const handleCheck = () => setCheck(true);
+   
 
     // const recordCreation = useRef(null)
     const bourbonName = useRef(null)
