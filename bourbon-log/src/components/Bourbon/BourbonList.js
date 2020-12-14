@@ -11,7 +11,7 @@ import Alert from 'react-bootstrap/Alert'
 
 export const BourbonList = (props) => {
 
-    const { DeleteLog, getLogs, logs } = useContext(LogContext)
+    const { DeleteLog, GetLogs, logs } = useContext(LogContext)
 
     const [selectedBourbon, setSelectedBourbon] = useState({})
     const [show, setShow] = useState(false);
@@ -24,7 +24,7 @@ export const BourbonList = (props) => {
     };
 
     useEffect(() => {
-        getLogs()
+        GetLogs()
     }, [])
 
     return (
@@ -118,10 +118,14 @@ export const BourbonList = (props) => {
                             {!showAlert && <Button variant="danger" onClick={() => setShowAlert(true)}>Delete</Button>}
 
 
+                            {/* ↓ edit button ↓ */}
+                            <Button variant="primary" onClick={() => {
 
-                            <Button variant="primary" onClick={handleClose}>
+                                props.history.push(`/logs/edit/${selectedBourbon.id}`)
+
+                            }}>
                                 Edit
-                                        </Button>
+                            </Button>
                         </Modal.Footer>
                     </Modal>
                     : ""}
@@ -130,13 +134,3 @@ export const BourbonList = (props) => {
     )
 }
 
-{/* <Button className="deleteButton" variant="danger" onClick={() => {
-                                            
-    handleClose()
-    DeleteLog(selectedBourbon.id)
-    .then(() => {
-        props.history.push("/ViewList")
-        })
-         }}>
-        Delete
-    </Button> */}

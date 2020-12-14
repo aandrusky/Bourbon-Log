@@ -4,42 +4,53 @@ export const LogContext = React.createContext()
 
 export const LogProvider = (props) => {
 
-    const [logs, setLogs] = useState([]) 
-    // useState returns [initial value of state variable, a function to set the value of the state variable]
-  
-    const getLogs = () => {
-      return fetch("http://localhost:8088/Logs")
-        .then(res => res.json())
-        .then(setLogs).then((data) => console.log("HERES THE DATA", data))
-        // .then(parsedLogs => setLogs(parsedLogs))
-    }
-  
-    const AddLog = log => {
-      return fetch("http://localhost:8088/Logs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(log)
-      })
-        .then(getLogs)
-    }
+  const [logs, setLogs] = useState([])
+  // useState returns [initial value of state variable, a function to set the value of the state variable]
 
-    const DeleteLog = log => {
-      return fetch(`http://localhost:8088/Logs/${log}`, {
-          method: "DELETE"
-      })
-          .then(getLogs)
+  const GetLogs = () => {
+    return fetch("http://localhost:8088/Logs")
+      .then(res => res.json())
+      .then(setLogs).then((data) => console.log("HERES THE DATA", data))
+    // .then(parsedLogs => setLogs(parsedLogs))
   }
-  
-    return (
-      <LogContext.Provider value={
-        {
-        logs, AddLog, getLogs, DeleteLog
-        }
-      }>
-        {props.children}
-      </LogContext.Provider>
-    )
+
+  const AddLog = log => {
+    return fetch("http://localhost:8088/Logs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(log)
+    })
+      .then(GetLogs)
   }
+
+  const DeleteLog = log => {
+    return fetch(`http://localhost:8088/Logs/${log}`, {
+      method: "DELETE"
+    })
+      .then(GetLogs)
+  }
+
+  const EditLog = log => {
+    return fetch(`http://localhost:8088/Logs/${log}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(log)
+    })
+      .then(GetLogs)
+  }
+
+  return (
+    <LogContext.Provider value={
+      {
+        logs, AddLog, GetLogs, DeleteLog, EditLog
+      }
+    }>
+      {props.children}
+    </LogContext.Provider>
+  )
+}
 
