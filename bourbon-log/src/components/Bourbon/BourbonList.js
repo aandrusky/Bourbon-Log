@@ -30,6 +30,9 @@ export const BourbonList = (props) => {
     return (
         <>
             <h1>BourbonList</h1>
+
+            <button className="Back-Button" onClick={() => props.history.push("/")}>Back</button>
+                    
             <div>
                 {
                     logs.map(logObj => {
@@ -62,18 +65,19 @@ export const BourbonList = (props) => {
                         aria-labelledby="contained-modal-title-vcenter"
                         centered>
 
-                        <Modal.Header closeButton>
+                        <Modal.Header >
                             <Modal.Title>{selectedBourbon.bourbonName}</Modal.Title>
 
 
                         </Modal.Header>
                         <Modal.Body>
                             <div>
-                            <p>{selectedBourbon.distiller} </p>
+                            <p>Distillery: {selectedBourbon.distiller} </p>
                             <p>Proof: {selectedBourbon.proof} </p>
                             <p> Age: {selectedBourbon.age} years </p>
-                            <p> Batch #: {selectedBourbon.batchNum} </p>
+                            <p> Batch: {selectedBourbon.batchNum} </p>
                             <p> Rated: {selectedBourbon.rating} </p>
+                            <p> Notes: {selectedBourbon.notes} </p>
                             </div>
 
                         </Modal.Body>
@@ -91,9 +95,9 @@ export const BourbonList = (props) => {
 
                             <Alert show={showAlert} variant="danger">
                                 <Alert.Heading>Are you sure?</Alert.Heading>
-                                <p>
+                                <div>
                                     This action will result in permanant deletion of this bourbon log! Are you sure you want to continue?
-                                </p>
+                                </div>
                                 <hr />
                                 <div className="d-flex justify-content-end">
                                     <Button variant="secondary" onClick={() => setShowAlert(false)} >

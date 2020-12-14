@@ -14,7 +14,10 @@ export const Home = (props) => {
                     New Log
                 </button>
             
-                <button className="Logout-Button" onClick={Logout}>
+                <button className="Logout-Button" onClick={() => {
+                    Logout()
+                    props.history.push("/NewLog")
+                }}>
                     Logout
                 </button>
             </div>

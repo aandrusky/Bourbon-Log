@@ -45,6 +45,19 @@
       "notes": "THIS IS A TEST. DID IT WROL?",
       "rating": "10",
       "userId": 1
+    },
+    {
+      "bourbonName": "Blood Oath Pact No 6",
+      "distiller": "Lux Row",
+      "proof": "98.6",
+      "age": "Blend of 14 Year, 8 Year, and 7 Year Kentucky Straight Rye-Based Bourbons",
+      "batchNum": "Pact No 6",
+      "owned": "",
+      "price": "99",
+      "notes": "Overall Pact No. 6 with its Cognac finish is a flavorful barrel finished bourbon that drinks easy thanks to its sweet palate. Its Cognac finish is surprisingly inoffensive, well integrated, and long lasting.",
+      "rating": "8/10",
+      "userId": 1,
+      "id": 4
     }
   ],
   "flavorsums": [],
