@@ -33,7 +33,7 @@ export const LogProvider = (props) => {
   }
 
   const EditLog = log => {
-    return fetch(`http://localhost:8088/Logs/${log}`, {
+    return fetch(`http://localhost:8088/Logs/${log.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

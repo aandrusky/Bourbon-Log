@@ -68,12 +68,13 @@ export const BourbonList = (props) => {
 
                         </Modal.Header>
                         <Modal.Body>
+                            <div>
                             <p>{selectedBourbon.distiller} </p>
                             <p>Proof: {selectedBourbon.proof} </p>
                             <p> Age: {selectedBourbon.age} years </p>
                             <p> Batch #: {selectedBourbon.batchNum} </p>
                             <p> Rated: {selectedBourbon.rating} </p>
-
+                            </div>
 
                         </Modal.Body>
                         <Modal.Footer>

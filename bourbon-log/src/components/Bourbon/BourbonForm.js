@@ -1,14 +1,19 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState, useEffect } from 'react'
 import { LogContext } from "./LogProvider"
 import  Form from 'react-bootstrap/Form'
 import  Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const BourbonForm = (props) => {
+
+  
 // Use the required context providers for data
-    const { AddLog, EditLog } = useContext(LogContext)
+    const { AddLog, logs, EditLog, GetLogs } = useContext(LogContext)
 // Component state
     const [log, setLog] = useState({})
+
+    // const bourbonName = parseInt(log.id)
+
  // Is there a a URL parameter??
  const editMode = props.match.params.hasOwnProperty("logId")
 
@@ -17,7 +22,7 @@ export const BourbonForm = (props) => {
       When changing a state object or array, always create a new one
       and change state instead of modifying current one
   */
-  const newBourbon = Object.assign({}, console.log();)
+  const newBourbon = Object.assign({}, log)
   newBourbon[event.target.name] = event.target.value
   setLog(newBourbon)
 }
@@ -49,73 +54,74 @@ export const BourbonForm = (props) => {
 
 
   const constructNewBourbon = () => {
-
-    if (bourbonName.current.value === "") {
-      window.alert("Please add the name of your bourbon to save a log")
-    } else {
+    
+    // if (bourbonName.current.value === "") {
+    //   window.alert("Please add the name of your bourbon to save a log")
+    // } else {
         if (editMode) {
             EditLog({
-              bourbonName: bourbonName.current.value,
-              distiller: distiller.current.value,
-              proof: proof.current.value,
-              age: age.current.value,
-              batchNum: batchNum.current.value,
-              owned: owned.current.checked,
-              price: price.current.value,
-              notes: notes.current.value,
-              rating: rating.current.value,
+              id: log.id,
+              bourbonName: log.bourbonName,
+              distiller: log.distiller,
+              proof: log.proof,
+              age: log.age,
+              batchNum: log.batchNum,
+              owned: log.owned,
+              price: log.price,
+              notes: log.notes,
+              rating: log.rating,
               userId: parseInt(localStorage.getItem("app_user_id"))
             })
                 .then(() => props.history.push("/ViewList"))
         } else {
             AddLog({
-              bourbonName: bourbonName.current.value,
-              distiller: distiller.current.value,
-              proof: proof.current.value,
-              age: age.current.value,
-              batchNum: batchNum.current.value,
-              owned: owned.current.checked,
-              price: price.current.value,
-              notes: notes.current.value,
-              rating: rating.current.value,
+              bourbonName: log.bourbonName,
+              distiller: log.distiller,
+              proof: log.proof,
+              age: log.age,
+              batchNum: log.batchNum,
+              owned: log.owned,
+              price: log.price,
+              notes: log.notes,
+              rating: log.rating,
               userId: parseInt(localStorage.getItem("app_user_id"))
             })
                 .then(() => props.history.push("/ViewList"))
         }
     }
-}
+
     
     
 
 
 return ( 
 <>
-  <h5>New Bourbon Log</h5>
+  <h5 className="bourbonForm__title"> {editMode ? "Update Log" : "New Bourbon Log"}</h5>
     <Form>
   <Form.Group controlId="formBourbonName">
     <Form.Label>Bourbon Name</Form.Label>
-    <Form.Control type="text" ref={bourbonName} placeholder="Bourbon name here" />
+    <Form.Control type="text" name="bourbonName" onChange={handleControlledInputChange} value={log.bourbonName} placeholder="Bourbon name here" />
     <Form.Text className="text-muted"></Form.Text>
   </Form.Group>
 
   <Form.Group controlId="formDistillery">
     <Form.Label>Distillery</Form.Label>
-    <Form.Control type="text" ref={distiller} placeholder="Distillery name here" />
+    <Form.Control type="text" name="distiller" onChange={handleControlledInputChange} value={log.distiller} placeholder="Distillery name here" />
   </Form.Group>
 
   <Form.Group controlId="formProof">
     <Form.Label>Proof</Form.Label>
-    <Form.Control type="text" ref={proof} placeholder="Proof # here" />
+    <Form.Control type="text" name="proof" onChange={handleControlledInputChange} value={log.proof} placeholder="Proof # here" />
   </Form.Group>
 
   <Form.Group controlId="formAge">
     <Form.Label>Age</Form.Label>
-    <Form.Control type="text" ref={age} placeholder="Age of bourbon here" />
+    <Form.Control type="text" name="age" onChange={handleControlledInputChange} value={log.age} placeholder="Age of bourbon here" />
   </Form.Group>
 
   <Form.Group controlId="formBatch">
     <Form.Label>Batch Number</Form.Label>
-    <Form.Control type="text" ref={batchNum} placeholder="Batch number/name here" />
+    <Form.Control type="text" name="batchNum" onChange={handleControlledInputChange} value={log.batchNum} placeholder="Batch number/name here" />
   </Form.Group>
   
 
@@ -123,9 +129,11 @@ return (
   <Form.Group controlId="ownedSwitch">
   <Form.Check 
     type="switch"
+    name="owned"
     id="ownedIndicator-switch"
     label="Yes!"
-    ref={owned}
+    onChange={handleControlledInputChange}
+    value={log.owned}
   />
   </Form.Group>
 
@@ -133,12 +141,12 @@ return (
 
   <Form.Group controlId="formPrice">
     <Form.Label>Price Paid</Form.Label>
-    <Form.Control type="text" ref={price} placeholder="Price for bottle or pour here" />
+    <Form.Control type="text" name="price" onChange={handleControlledInputChange} value={log.price} placeholder="Price for bottle or pour here" />
   </Form.Group>
 
   <Form.Group controlId="formNotes">
     <Form.Label>Notes</Form.Label>
-    <Form.Control type="text" ref={notes} as="textarea" rows={3} placeholder="Overall impression here" />
+    <Form.Control type="text" name="notes" onChange={handleControlledInputChange} value={log.notes} as="textarea" rows={3} placeholder="Overall impression here" />
   </Form.Group>
   
   <h5>Tasting Notes</h5>
@@ -186,12 +194,12 @@ return (
 
   <Form.Group controlId="formRating">
     <Form.Label>Rating</Form.Label>
-    <Form.Control type="text" ref={rating} placeholder="How would you rate this bottle?" />
+    <Form.Control type="text" name="rating" onChange={handleControlledInputChange} value={log.rating} placeholder="How would you rate this bottle?" />
   </Form.Group>
 
   <Button onClick={(evt)=> 
   { evt.preventDefault()
-    PostSavedForm() 
+    constructNewBourbon() 
   }}
      variant="primary" size="lg" type="submit" block> 
     Save Log 
@@ -368,5 +376,3 @@ return (
 // </>
 // )
 // }
-
-

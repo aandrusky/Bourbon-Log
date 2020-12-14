@@ -20,7 +20,7 @@ export const ApplicationViews = (props) => {
                 <Route path="/NewLog/:logId(\d+)" render={
                     props => <LogDetail {...props} />
                 } />
-                <Route path="/NewLog/edit/:logId(\d+)" render={
+                <Route path="/logs/edit/:logId(\d+)" render={
                     props => <BourbonForm {...props} />
                 } />
                 <Route path="/ViewList" render={
