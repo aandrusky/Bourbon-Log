@@ -8,7 +8,6 @@ import Alert from 'react-bootstrap/Alert'
 
 
 
-
 export const BourbonList = (props) => {
 
     const { DeleteLog, GetLogs, logs } = useContext(LogContext)
@@ -24,7 +23,8 @@ export const BourbonList = (props) => {
     };
 
     useEffect(() => {
-        GetLogs()
+        const userLogs = parseInt(localStorage.getItem("app_user_id"))
+        GetLogs(userLogs)
     }, [])
 
     return (
@@ -32,14 +32,17 @@ export const BourbonList = (props) => {
             <h1>BourbonList</h1>
 
             <button className="Back-Button" onClick={() => props.history.push("/")}>Back</button>
-                    
+
             <div>
                 {
                     logs.map(logObj => {
 
+                            
+
                         return (
 
-
+                            // I only want to return cards (logs) that include a matching user id to the localStorage.getItem.h
+                            
 
                             <Card key={logObj.id} style={{ width: '18rem' }}>
 
@@ -72,12 +75,12 @@ export const BourbonList = (props) => {
                         </Modal.Header>
                         <Modal.Body>
                             <div>
-                            <p>Distillery: {selectedBourbon.distiller} </p>
-                            <p>Proof: {selectedBourbon.proof} </p>
-                            <p> Age: {selectedBourbon.age} years </p>
-                            <p> Batch: {selectedBourbon.batchNum} </p>
-                            <p> Rated: {selectedBourbon.rating} </p>
-                            <p> Notes: {selectedBourbon.notes} </p>
+                                <p>Distillery: {selectedBourbon.distiller} </p>
+                                <p>Proof: {selectedBourbon.proof} </p>
+                                <p> Age: {selectedBourbon.age} years </p>
+                                <p> Batch: {selectedBourbon.batchNum} </p>
+                                <p> Rated: {selectedBourbon.rating} </p>
+                                <p> Notes: {selectedBourbon.notes} </p>
                             </div>
 
                         </Modal.Body>
@@ -85,7 +88,7 @@ export const BourbonList = (props) => {
                             <Button variant="secondary" onClick={() => {
                                 setShowAlert(false)
                                 handleClose()
-                            }}>     
+                            }}>
                                 Close
                             </Button>
 
@@ -116,7 +119,7 @@ export const BourbonList = (props) => {
                                         variant="danger">
                                         Yes, delete permanantly
                                     </Button>
-                                    
+
                                 </div>
                             </Alert>
 

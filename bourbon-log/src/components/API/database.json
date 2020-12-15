@@ -13,10 +13,10 @@
       "id": 2
     },
     {
-      "email": "test@test.com",
-      "password": "test",
-      "name": "Test Tester",
-      "id": 3
+      "email": "Ihateyoudad@neworder.org",
+      "password": "123",
+      "name": "Kylo Sven",
+      "id": 4
     }
   ],
   "logs": [
@@ -34,19 +34,6 @@
       "photo": ""
     },
     {
-      "id": 3,
-      "bourbonName": "Henry McKenna 10 year",
-      "distiller": "Heaven Hill",
-      "proof": "100",
-      "age": "10",
-      "batchNum": "4395",
-      "owned": "",
-      "price": "45",
-      "notes": "THIS IS A TEST. DID IT WROL?",
-      "rating": "10",
-      "userId": 1
-    },
-    {
       "bourbonName": "Blood Oath Pact No 6",
       "distiller": "Lux Row",
       "proof": "98.6",
@@ -58,6 +45,19 @@
       "rating": "8/10",
       "userId": 1,
       "id": 4
+    },
+    {
+      "id": 5,
+      "bourbonName": "Henry McKenna 10 year",
+      "distiller": "Heaven Hill",
+      "proof": "100",
+      "age": "100",
+      "batchNum": "4395",
+      "owned": "",
+      "price": "45",
+      "notes": "ITs alright",
+      "rating": "8/10",
+      "userId": 1
     }
   ],
   "flavorsums": [],

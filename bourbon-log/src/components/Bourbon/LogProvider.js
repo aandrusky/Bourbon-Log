@@ -7,8 +7,8 @@ export const LogProvider = (props) => {
   const [logs, setLogs] = useState([])
   // useState returns [initial value of state variable, a function to set the value of the state variable]
 
-  const GetLogs = () => {
-    return fetch("http://localhost:8088/Logs")
+  const GetLogs = (id) => {
+    return fetch(`http://localhost:8088/Logs?userId=${id}`)
       .then(res => res.json())
       .then(setLogs).then((data) => console.log("HERES THE DATA", data))
     // .then(parsedLogs => setLogs(parsedLogs))
