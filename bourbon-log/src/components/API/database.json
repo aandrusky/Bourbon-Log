@@ -70,6 +70,29 @@
       "rating": "asdf",
       "userId": 2,
       "id": 6
+    },
+    {
+      "bourbonName": "Test Bourbonasdfasdf",
+      "distiller": "10",
+      "proof": "98.6",
+      "age": "28",
+      "batchNum": "4395",
+      "owned": "",
+      "price": "45",
+      "notes": "asdadfsdf",
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "bourbonName": "asdfasdfasfd",
+      "distiller": "asdfafsd",
+      "proof": "asdfadf",
+      "age": "asdasdf",
+      "batchNum": "aasdfafd",
+      "price": "40",
+      "notes": "asdfa",
+      "userId": 2,
+      "id": 8
     }
   ],
   "flavorsums": [

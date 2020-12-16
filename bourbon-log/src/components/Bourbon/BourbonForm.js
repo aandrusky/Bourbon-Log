@@ -16,6 +16,8 @@ export const BourbonForm = (props) => {
 // Component state
   const [log, setLog] = useState({})
 
+  const [flavorSumObjects, setFlavorSumObjects] = useState([])
+
     //this is so that all my sliders don't slide all at the same time. 
   const [ value1, setValue1 ] = React.useState(0);
   const [ value2, setValue2 ] = React.useState(0);
@@ -39,7 +41,21 @@ export const BourbonForm = (props) => {
     // const value9 = useRef(null)
     // const value10 = useRef(null)
 
- const editMode = props.match.params.hasOwnProperty("logId")  //This checks if my object has a "logId" tied to it. If it does, then it means it's been created, and exists, therefore, not new.
+const editMode = props.match.params.hasOwnProperty("logId")  //This checks if my object has a "logId" tied to it. If it does, then it means it's been created, and exists, therefore, not new.
+
+const flavorSumLogger = (event) => {
+  const flavorId = parseInt(event.target.id)
+  const newFlavorSumObjects = flavorSumObjects.slice()
+  const foundFlavorObject = flavorSumObjects.find(flavor => flavor.flavorId === flavorId) 
+  const flavorweight = parseInt(event.target.value)
+  if ( foundFlavorObject !== undefined) {
+    foundFlavorObject.flavorweight = flavorweight
+  } else {
+    newFlavorSumObjects.push({flavorId, flavorweight})
+  }
+  setFlavorSumObjects(newFlavorSumObjects)
+
+}
 
  const handleControlledInputChange = (event) => {
   /*
@@ -110,7 +126,7 @@ export const BourbonForm = (props) => {
               proof: log.proof,
               age: log.age,
               batchNum: log.batchNum,
-              owned: log.owned.checked,
+              owned: log.owned,
               price: log.price,
               notes: log.notes,
               rating: log.rating,
@@ -124,12 +140,13 @@ export const BourbonForm = (props) => {
               proof: log.proof,
               age: log.age,
               batchNum: log.batchNum,
-              owned: log.owned.current.checked,
+              owned: log.owned,
               price: log.price,
               notes: log.notes,
               rating: log.rating,
               userId: parseInt(localStorage.getItem("app_user_id"))
             })
+              .then((logObject) => console.log(logObject))
             //.then addflavorsums, need construct flavorsumsObj function,. which will need to loop through the sliders and grab values that !0
                 .then(() => props.history.push("/ViewList"))
         }
@@ -203,7 +220,7 @@ return (
             return (
               <>
               <Form.Label>{flavorObj.flavor}</Form.Label>
-               <Form.Control id={flavorObj.id}  type="range" />  
+               <Form.Control id={flavorObj.id} defaultValue="0" type="range" onChange={flavorSumLogger} />  
               </>
             )
            }
