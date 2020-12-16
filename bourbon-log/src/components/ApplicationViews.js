@@ -5,14 +5,16 @@ import { BourbonList } from './Bourbon/BourbonList'
 import { BourbonDetail } from './Bourbon/BourbonDetail'
 import { Home } from './Nav/Home'
 import { LogProvider } from "./Bourbon/LogProvider"
-import { FlavorSumProvider } from './Flavors/FlavorProvider'
+import { FlavorSumProvider } from './Flavors/FlavorSumProvider'
 import { FlavorDetail } from './Flavors/FlavorDetail'
+import { FlavorProvider } from './Flavors/FlavorProvider'
 
 export const ApplicationViews = (props) => {
     return (
         <>
             <LogProvider>
-                <FlavorSumProvider>
+                <FlavorProvider>
+                    <FlavorSumProvider>
                 <Route exact path="/" render={
                     props => <Home {...props}
                     />
@@ -29,7 +31,8 @@ export const ApplicationViews = (props) => {
                 <Route path="/ViewList" render={
                     props => <BourbonList {...props} />
                 } />
-                </FlavorSumProvider>
+                    </FlavorSumProvider>
+                </FlavorProvider>
             </LogProvider>
 
             <FlavorSumProvider>

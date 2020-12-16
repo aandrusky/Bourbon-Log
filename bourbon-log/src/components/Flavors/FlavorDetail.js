@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import { FlavorSumsContext } from "./FlavorProvider"
+import { FlavorSumsContext } from "./FlavorSumProvider"
 
 export const FlavorDetail = (props) => {
 

@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { LogContext } from "./LogProvider"
-import { FlavorSumsContext } from "../Flavors/FlavorProvider"
+import { FlavorSumsContext } from "../Flavors/FlavorSumProvider"
+import { FlavorContext } from "../Flavors/FlavorProvider"
 import { Col, Row, Form, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -9,10 +10,11 @@ export const BourbonForm = (props) => {
 
   
 // Use the required context providers for data
-    const { AddLog, logs, EditLog, GetLogs } = useContext(LogContext)
-    const { flavors, GetFlavorSums, AddFlavorSums } = useContext(FlavorSumsContext)
+  const { AddLog, logs, EditLog, GetLogs } = useContext(LogContext)
+  const { flavors, GetFlavorSums, AddFlavorSums } = useContext(FlavorSumsContext)
+  const { GetFlavors, flavorItem } = useContext(FlavorContext)
 // Component state
-    const [log, setLog] = useState({})
+  const [log, setLog] = useState({})
 
     //this is so that all my sliders don't slide all at the same time. 
   const [ value1, setValue1 ] = React.useState(0);
@@ -26,8 +28,18 @@ export const BourbonForm = (props) => {
   const [ value9, setValue9 ] = React.useState(0);
   const [ value10, setValue10 ] = React.useState(0);
 
-  
- const editMode = props.match.params.hasOwnProperty("logId")
+    // const value1 = useRef(null)
+    // const value2 = useRef(null)
+    // const value3 = useRef(null)
+    // const value4 = useRef(null)
+    // const value5 = useRef(null)
+    // const value6 = useRef(null)
+    // const value7 = useRef(null)
+    // const value8 = useRef(null)
+    // const value9 = useRef(null)
+    // const value10 = useRef(null)
+
+ const editMode = props.match.params.hasOwnProperty("logId")  //This checks if my object has a "logId" tied to it. If it does, then it means it's been created, and exists, therefore, not new.
 
  const handleControlledInputChange = (event) => {
   /*
@@ -37,11 +49,7 @@ export const BourbonForm = (props) => {
   const newBourbon = Object.assign({}, log)
   newBourbon[event.target.name] = event.target.value
   setLog(newBourbon)
-
-  //NOPE NOPE NOPE
-  const newFlavor = Object.assign({}, value1)
-  newFlavor[event.target.name] = event.target.value
-  setValue1(newFlavor)
+ 
 }
 
  /*
@@ -71,6 +79,23 @@ export const BourbonForm = (props) => {
     getLogInEditMode()
   }, [logs])
 
+  useEffect(() => {
+    GetFlavors()
+  }, []) 
+
+  //  const constructNewFlavor = () => {
+  //    if (
+       
+  //    )
+  //    AddFlavorSums({
+  //      flavorId: 
+  //      flavorweight: 
+  //    logId: log.id
+  //    })
+  //  }
+
+
+
 
   const constructNewBourbon = () => {
     
@@ -89,16 +114,6 @@ export const BourbonForm = (props) => {
               price: log.price,
               notes: log.notes,
               rating: log.rating,
-              Fruit: value1.weight, 
-              Floral: value2.weight, 
-              Oak: value3.weight,
-              Nuts: value4.weight, 
-              Spicy: value5.weight, 
-              Maple: value6.weight,
-              Sweet: value7.weight,
-              Bread: value8.weight,
-              Earthy: value9.weight,
-              Grain: value10.weight,
               userId: parseInt(localStorage.getItem("app_user_id"))
             })
                 .then(() => props.history.push("/ViewList"))
@@ -113,18 +128,9 @@ export const BourbonForm = (props) => {
               price: log.price,
               notes: log.notes,
               rating: log.rating,
-              Fruit: value1.weight, 
-              Floral: value2.weight, 
-              Oak: value3.weight,
-              Nuts: value4.weight, 
-              Spicy: value5.weight, 
-              Maple: value6.weight,
-              Sweet: value7.weight,
-              Bread: value8.weight,
-              Earthy: value9.weight,
-              Grain: value10.weight,
               userId: parseInt(localStorage.getItem("app_user_id"))
             })
+            //.then addflavorsums, need construct flavorsumsObj function,. which will need to loop through the sliders and grab values that !0
                 .then(() => props.history.push("/ViewList"))
         }
     }
@@ -188,86 +194,21 @@ return (
    {/*my console log does grab the slider value. that number is the user's assigned 'weight'. On save, I need to grab only the values >0. */}
 
 
+
       <Form >
       <Form.Group controlId="flavorSliders">
-      <Form.Label>Fruit</Form.Label>
-      <Form.Control type="range" 
-            value={value1}
-            onChange={e => setValue1(e.target.value)} 
-            variant="danger"
-            
-          />      
+        {
+           flavorItem.map(flavorObj => {
+             console.log("flavorObj:", flavorObj)
+            return (
+              <>
+              <Form.Label>{flavorObj.flavor}</Form.Label>
+               <Form.Control id={flavorObj.id}  type="range" />  
+              </>
+            )
+           }
+           )}
       
-
-      
-      <Form.Label>Floral</Form.Label>
-      <Form.Control type="range" 
-            value={value2}
-            onChange={e => setValue2(e.target.value)}
-            />
-      
-
-      
-      <Form.Label>Oak</Form.Label>
-      <Form.Control type="range"
-            value={value3}
-            onChange={e => setValue3(e.target.value)}
-            />
-      
-
-      
-      <Form.Label>Nuts</Form.Label>
-      <Form.Control type="range"
-            value={value4}
-            onChange={e => setValue4(e.target.value)}
-            />
-      
-
-      
-      <Form.Label>Spicy</Form.Label>
-      <Form.Control type="range"
-            value={value5}
-            onChange={e => setValue5(e.target.value)}
-            />
-      
-
-     
-      <Form.Label>Maple</Form.Label>
-      <Form.Control type="range"
-            value={value6}
-            onChange={e => setValue6(e.target.value)}
-            />
-        
-
-      
-      <Form.Label>Sweet</Form.Label>
-      <Form.Control type="range"
-            value={value7}
-            onChange={e => setValue7(e.target.value)}
-            />
-      
-
-      
-      <Form.Label>Bread</Form.Label>
-      <Form.Control type="range"
-            value={value8}
-            onChange={e => setValue8(e.target.value)}
-            />
-      
-
-      <Form.Label>Earthy</Form.Label> 
-        <Form.Control type="range"
-            value={value9}
-            onChange={e => setValue9(e.target.value)}
-            />
-      
-
-      
-      <Form.Label>Grain</Form.Label>
-        <Form.Control type="range"
-            value={value10}
-            onChange={e => setValue10(e.target.value)}
-            />
       </Form.Group>
       </Form>
 
@@ -293,3 +234,15 @@ return (
 )
 }
 
+
+
+// Fruit: value1.weight, 
+// Floral: value2.weight, 
+// Oak: value3.weight,
+// Nuts: value4.weight, 
+// Spicy: value5.weight, 
+// Maple: value6.weight,
+// Sweet: value7.weight,
+// Bread: value8.weight,
+// Earthy: value9.weight,
+// Grain: value10.weight,

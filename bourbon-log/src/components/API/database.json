@@ -72,19 +72,24 @@
       "id": 6
     }
   ],
-  //↓↓↓this one generates an entry for every slider with a value that is !0↓↓↓
   "flavorsums": [
-    { 
-      "id":17,
+    {
+      "id": 17,
       "flavorId": 1,
       "flavorweight": 70,
       "logId": 15
     },
-    { 
-      "id":18,
+    {
+      "id": 18,
       "flavorId": 2,
       "Flavorweight": 25,
       "logId": 15
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 50,
+      "logId": 2,
+      "id": 19
     }
   ],
   "flavors": [
