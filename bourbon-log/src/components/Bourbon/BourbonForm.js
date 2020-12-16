@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { LogContext } from "./LogProvider"
-import { FlavorNotesContext } from "../Flavors/FlavorProvider"
+import { FlavorSumsContext } from "../Flavors/FlavorProvider"
 import { Col, Row, Form, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -10,7 +10,7 @@ export const BourbonForm = (props) => {
   
 // Use the required context providers for data
     const { AddLog, logs, EditLog, GetLogs } = useContext(LogContext)
-    const { flavors, GetFlavorNotes, AddFlavorNotes } = useContext(FlavorNotesContext)
+    const { flavors, GetFlavorSums, AddFlavorSums } = useContext(FlavorSumsContext)
 // Component state
     const [log, setLog] = useState({})
 
@@ -26,19 +26,7 @@ export const BourbonForm = (props) => {
   const [ value9, setValue9 ] = React.useState(0);
   const [ value10, setValue10 ] = React.useState(0);
 
-    
-
-
-
-
-    //render flavors from database and assign checkboxes
-
-    useEffect(() => {
-      GetFlavorNotes()
-    }, []) 
-
- 
-    
+  
  const editMode = props.match.params.hasOwnProperty("logId")
 
  const handleControlledInputChange = (event) => {
@@ -49,6 +37,11 @@ export const BourbonForm = (props) => {
   const newBourbon = Object.assign({}, log)
   newBourbon[event.target.name] = event.target.value
   setLog(newBourbon)
+
+  //NOPE NOPE NOPE
+  const newFlavor = Object.assign({}, value1)
+  newFlavor[event.target.name] = event.target.value
+  setValue1(newFlavor)
 }
 
  /*
@@ -58,6 +51,8 @@ export const BourbonForm = (props) => {
             2. Use that `id` to find the animal.
             3. Update component state variable.
     */
+
+    //how do I add flavors to this so that they can also be adjusted in edit mode?
    const getLogInEditMode = () => {
     if (editMode) {
         const logId = parseInt(props.match.params.logId)
@@ -66,7 +61,7 @@ export const BourbonForm = (props) => {
     }
 }
 
-    // Get animals from API when component initializes
+    // Get animals from API when component initializes- do I also need to get flavorSums here?
     useEffect(() => {
       GetLogs()
   }, [])
@@ -94,6 +89,16 @@ export const BourbonForm = (props) => {
               price: log.price,
               notes: log.notes,
               rating: log.rating,
+              Fruit: value1.weight, 
+              Floral: value2.weight, 
+              Oak: value3.weight,
+              Nuts: value4.weight, 
+              Spicy: value5.weight, 
+              Maple: value6.weight,
+              Sweet: value7.weight,
+              Bread: value8.weight,
+              Earthy: value9.weight,
+              Grain: value10.weight,
               userId: parseInt(localStorage.getItem("app_user_id"))
             })
                 .then(() => props.history.push("/ViewList"))
@@ -108,6 +113,16 @@ export const BourbonForm = (props) => {
               price: log.price,
               notes: log.notes,
               rating: log.rating,
+              Fruit: value1.weight, 
+              Floral: value2.weight, 
+              Oak: value3.weight,
+              Nuts: value4.weight, 
+              Spicy: value5.weight, 
+              Maple: value6.weight,
+              Sweet: value7.weight,
+              Bread: value8.weight,
+              Earthy: value9.weight,
+              Grain: value10.weight,
               userId: parseInt(localStorage.getItem("app_user_id"))
             })
                 .then(() => props.history.push("/ViewList"))
@@ -176,7 +191,7 @@ return (
       <Form >
       <Form.Group controlId="flavorSliders">
       <Form.Label>Fruit</Form.Label>
-      <Form.Control type="range"  custom
+      <Form.Control type="range" 
             value={value1}
             onChange={e => setValue1(e.target.value)} 
             variant="danger"
@@ -186,7 +201,7 @@ return (
 
       
       <Form.Label>Floral</Form.Label>
-      <Form.Control type="range"
+      <Form.Control type="range" 
             value={value2}
             onChange={e => setValue2(e.target.value)}
             />

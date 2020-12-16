@@ -2,16 +2,17 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { BourbonForm } from './Bourbon/BourbonForm'
 import { BourbonList } from './Bourbon/BourbonList'
-import { LogDetail } from './Bourbon/BourbonDetail'
+import { BourbonDetail } from './Bourbon/BourbonDetail'
 import { Home } from './Nav/Home'
 import { LogProvider } from "./Bourbon/LogProvider"
-import { FlavorProvider } from './Flavors/FlavorProvider'
+import { FlavorSumProvider } from './Flavors/FlavorProvider'
+import { FlavorDetail } from './Flavors/FlavorDetail'
 
 export const ApplicationViews = (props) => {
     return (
         <>
             <LogProvider>
-                <FlavorProvider>
+                <FlavorSumProvider>
                 <Route exact path="/" render={
                     props => <Home {...props}
                     />
@@ -20,7 +21,7 @@ export const ApplicationViews = (props) => {
                     props => <BourbonForm {...props} />
                 } />
                 <Route path="/NewLog/:logId(\d+)" render={
-                    props => <LogDetail {...props} />
+                    props => <BourbonDetail {...props} />
                 } />
                 <Route path="/logs/edit/:logId(\d+)" render={
                     props => <BourbonForm {...props} />
@@ -28,8 +29,14 @@ export const ApplicationViews = (props) => {
                 <Route path="/ViewList" render={
                     props => <BourbonList {...props} />
                 } />
-                </FlavorProvider>
+                </FlavorSumProvider>
             </LogProvider>
+
+            <FlavorSumProvider>
+                <Route path="/NewLog/:flavorId(\d+)" render={
+                    props => <FlavorDetail {...props}/>
+                } />
+            </FlavorSumProvider>
         </>
     )
 }

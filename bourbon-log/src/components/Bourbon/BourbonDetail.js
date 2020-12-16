@@ -1,20 +1,20 @@
-// import React, { useState, useEffect, useContext } from "react"
-// import { LogContext } from "./LogProvider"
+ import React, { useState, useEffect, useContext } from "react"
+ import { LogContext } from "./LogProvider"
 
-// export const LogDetail = (props) => {
+ export const BourbonDetail = (props) => {
 
-//     const { logs, GetLogs} = useContext(LogContext)
+     const { logs, GetLogs} = useContext(LogContext)
 
-//     const [ log, setLog ] = useState({})
+     const [ log, setLog ] = useState({})
 
-//     useEffect(() => {
-//         GetLogs()
-//     }, [])
+     useEffect(() => {
+         GetLogs()
+     }, [])
 
-//     useEffect(() => {
-//         const log = logs.find(l => l.id === parseInt(props.match.params.logId)) || {}
-//         setLog(log)
-//     }, [logs])
+     useEffect(() => {
+         const log = logs.find(l => l.id === parseInt(props.match.params.logId)) || {}
+         setLog(log)
+     }, [logs])
 
 
-//     }
+     }

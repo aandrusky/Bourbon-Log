@@ -1,38 +1,40 @@
 import React, { useState } from 'react'
 
-export const FlavorNotesContext = React.createContext()
+export const FlavorSumsContext = React.createContext()
 
-export const FlavorProvider = (props) => {
+export const FlavorSumProvider = (props) => {
 
 
-const [flavors, setFlavorsNotes] = useState([])
+const [flavors, setFlavorsSums] = useState([])
 // useState returns [initial value of state variable, a function to set the value of the state variable]
 
-const GetFlavorNotes = () => {
-  return fetch("http://localhost:8088/flavornotes")
+
+//I dont think I use
+const GetFlavorSums = () => {
+  return fetch("http://localhost:8088/flavorsums")
     .then(res => res.json())
-    .then(setFlavorsNotes).then((data) => console.log("HERES THE DATA", data))
+    .then(setFlavorsSums).then((data) => console.log("HERES THE DATA", data))
   // .then(parsedFlavors => setFlavors(parsedFlavors))
 }
 
-const AddFlavorNotes = flavor => {
-    return fetch("http://localhost:8088/flavornotes", {
+const AddFlavorSums = flavor => {
+    return fetch("http://localhost:8088/flavorsums", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(flavor)
     })
-      .then(GetFlavorNotes)
+      .then(GetFlavorSums)
   }
 
   return (
-    <FlavorNotesContext.Provider value={
+    <FlavorSumsContext.Provider value={
       {
-        flavors, AddFlavorNotes, GetFlavorNotes
+        flavors, AddFlavorSums, GetFlavorSums
       }
     }>
       {props.children}
-    </FlavorNotesContext.Provider>
+    </FlavorSumsContext.Provider>
   )
 }
