@@ -1,10 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { LogContext } from "./LogProvider"
 import { FlavorNotesContext } from "../Flavors/FlavorProvider"
-import  Form from 'react-bootstrap/Form'
-import  Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
+import { Col, Row, Form, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 export const BourbonForm = (props) => {
 
@@ -15,9 +14,22 @@ export const BourbonForm = (props) => {
 // Component state
     const [log, setLog] = useState({})
 
-    const [show, setShow] = useState(false);
-    const handleClose = (event) => setShow(false);
-    const handleShow = (event) => setShow(true)
+    //this is so that all my sliders don't slide all at the same time. 
+  const [ value1, setValue1 ] = React.useState(0);
+  const [ value2, setValue2 ] = React.useState(0);
+  const [ value3, setValue3 ] = React.useState(0);
+  const [ value4, setValue4 ] = React.useState(0);
+  const [ value5, setValue5 ] = React.useState(0);
+  const [ value6, setValue6 ] = React.useState(0);
+  const [ value7, setValue7 ] = React.useState(0);
+  const [ value8, setValue8 ] = React.useState(0);
+  const [ value9, setValue9 ] = React.useState(0);
+  const [ value10, setValue10 ] = React.useState(0);
+
+    
+
+
+
 
     //render flavors from database and assign checkboxes
 
@@ -25,26 +37,7 @@ export const BourbonForm = (props) => {
       GetFlavorNotes()
     }, []) 
 
-    const HandleCheckbox = (event) => { console.log("event", event)
-      if (event.target.checked) {
-  
-        return (
-          <Modal show={show} onHide={handleClose}
-                        {...props}
-                        size="lg"
-                        aria-labelledby="contained-modal-title-vcenter"
-                        centered>
-
-            <Modal.Header >
-              <Modal.Title>Weight the flavor test</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              This will display something 1-5 or 10 whatever
-            </Modal.Body>
-          </Modal>
-        )
-      }
-    }
+ 
     
  const editMode = props.match.params.hasOwnProperty("logId")
 
@@ -125,7 +118,7 @@ export const BourbonForm = (props) => {
 return ( 
 <>
   <h5 className="bourbonForm__title"> {editMode ? "Update Log" : "New Bourbon Log"}</h5>
-    <Form>
+    <Form >
   <Form.Group controlId="formBourbonName">
     <Form.Label>Bourbon Name</Form.Label>
     <Form.Control type="text" name="bourbonName" onChange={handleControlledInputChange} value={log.bourbonName} placeholder="Bourbon name here" />
@@ -176,24 +169,98 @@ return (
   
 
   <h5>Tasting Notes</h5>
+      
+   {/*my console log does grab the slider value. that number is the user's assigned 'weight'. On save, I need to grab only the values >0. */}
 
 
-  {flavors.map(flavorObj => {
-      return (
+      <Form >
+      <Form.Group controlId="flavorSliders">
+      <Form.Label>Fruit</Form.Label>
+      <Form.Control type="range"  custom
+            value={value1}
+            onChange={e => setValue1(e.target.value)} 
+            variant="danger"
+            
+          />      
       
-        <Form class="range-field w-50">
-        <Form.Group controlId="formBasicRangeCustom">
-        <Form.Label>{flavorObj.flavor}</Form.Label>
-        <Form.Control  type="range" min="0" max="100" custom />
-        </Form.Group>
-        </Form>
+
       
-        //<Form.Check key={flavorObj.id} type="checkbox" id={flavorObj.id} label={flavorObj.flavor} defaultChecked={false} onChange={(event) => {
-        //   handleShow(true)
-        //   HandleCheckbox(event)
-      )
-    }
-    )}
+      <Form.Label>Floral</Form.Label>
+      <Form.Control type="range"
+            value={value2}
+            onChange={e => setValue2(e.target.value)}
+            />
+      
+
+      
+      <Form.Label>Oak</Form.Label>
+      <Form.Control type="range"
+            value={value3}
+            onChange={e => setValue3(e.target.value)}
+            />
+      
+
+      
+      <Form.Label>Nuts</Form.Label>
+      <Form.Control type="range"
+            value={value4}
+            onChange={e => setValue4(e.target.value)}
+            />
+      
+
+      
+      <Form.Label>Spicy</Form.Label>
+      <Form.Control type="range"
+            value={value5}
+            onChange={e => setValue5(e.target.value)}
+            />
+      
+
+     
+      <Form.Label>Maple</Form.Label>
+      <Form.Control type="range"
+            value={value6}
+            onChange={e => setValue6(e.target.value)}
+            />
+        
+
+      
+      <Form.Label>Sweet</Form.Label>
+      <Form.Control type="range"
+            value={value7}
+            onChange={e => setValue7(e.target.value)}
+            />
+      
+
+      
+      <Form.Label>Bread</Form.Label>
+      <Form.Control type="range"
+            value={value8}
+            onChange={e => setValue8(e.target.value)}
+            />
+      
+
+      <Form.Label>Earthy</Form.Label> 
+        <Form.Control type="range"
+            value={value9}
+            onChange={e => setValue9(e.target.value)}
+            />
+      
+
+      
+      <Form.Label>Grain</Form.Label>
+        <Form.Control type="range"
+            value={value10}
+            onChange={e => setValue10(e.target.value)}
+            />
+      </Form.Group>
+      </Form>
+
+    {console.log(value1)}
+
+            
+  
+
 
 
 
