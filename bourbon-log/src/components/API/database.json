@@ -58,6 +58,18 @@
       "notes": "ITs alright",
       "rating": "8/10",
       "userId": 1
+    },
+    {
+      "bourbonName": "Test Bourbon",
+      "distiller": "Distillery Supreme",
+      "proof": "105",
+      "age": "12",
+      "batchNum": "2",
+      "price": "99",
+      "notes": "asdf",
+      "rating": "asdf",
+      "userId": 2,
+      "id": 6
     }
   ],
   "flavorsums": [],

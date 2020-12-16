@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Modal from 'react-bootstrap/Modal'
 import Alert from 'react-bootstrap/Alert'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
@@ -15,7 +15,9 @@ export const BourbonList = (props) => {
     const [selectedBourbon, setSelectedBourbon] = useState({})
     const [show, setShow] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+
     const handleClose = () => setShow(false);
+    
     const handleShow = (logObj) => {
         setSelectedBourbon(logObj)
         setShow(true)
@@ -37,8 +39,6 @@ export const BourbonList = (props) => {
                 {
                     logs.map(logObj => {
 
-                            
-
                         return (
 
                             // I only want to return cards (logs) that include a matching user id to the localStorage.getItem.h
@@ -52,6 +52,7 @@ export const BourbonList = (props) => {
                                     <Card.Text>
                                         <p>Batch {logObj.batchNum}</p>
                                         <p>Proof {logObj.proof}</p>
+                                        <p>Owned {logObj.owned}</p>
                                     </Card.Text>
                                     <Button onClick={() => handleShow(logObj)} variant="primary">View Log</Button>
                                 </Card.Body>

@@ -5,11 +5,13 @@ import { BourbonList } from './Bourbon/BourbonList'
 import { LogDetail } from './Bourbon/BourbonDetail'
 import { Home } from './Nav/Home'
 import { LogProvider } from "./Bourbon/LogProvider"
+import { FlavorProvider } from './Flavors/FlavorProvider'
 
 export const ApplicationViews = (props) => {
     return (
         <>
             <LogProvider>
+                <FlavorProvider>
                 <Route exact path="/" render={
                     props => <Home {...props}
                     />
@@ -26,6 +28,7 @@ export const ApplicationViews = (props) => {
                 <Route path="/ViewList" render={
                     props => <BourbonList {...props} />
                 } />
+                </FlavorProvider>
             </LogProvider>
         </>
     )

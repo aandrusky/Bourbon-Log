@@ -1,7 +1,9 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { LogContext } from "./LogProvider"
+import { FlavorNotesContext } from "../Flavors/FlavorProvider"
 import  Form from 'react-bootstrap/Form'
 import  Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const BourbonForm = (props) => {
@@ -9,12 +11,41 @@ export const BourbonForm = (props) => {
   
 // Use the required context providers for data
     const { AddLog, logs, EditLog, GetLogs } = useContext(LogContext)
+    const { flavors, GetFlavorNotes, AddFlavorNotes } = useContext(FlavorNotesContext)
 // Component state
     const [log, setLog] = useState({})
 
-    // const bourbonName = parseInt(log.id)
+    const [show, setShow] = useState(false);
+    const handleClose = (event) => setShow(false);
+    const handleShow = (event) => setShow(true)
 
- // Is there a a URL parameter??
+    //render flavors from database and assign checkboxes
+
+    useEffect(() => {
+      GetFlavorNotes()
+    }, []) 
+
+    const HandleCheckbox = (event) => { console.log("event", event)
+      if (event.target.checked) {
+  
+        return (
+          <Modal show={show} onHide={handleClose}
+                        {...props}
+                        size="lg"
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered>
+
+            <Modal.Header >
+              <Modal.Title>Weight the flavor test</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              This will display something 1-5 or 10 whatever
+            </Modal.Body>
+          </Modal>
+        )
+      }
+    }
+    
  const editMode = props.match.params.hasOwnProperty("logId")
 
  const handleControlledInputChange = (event) => {
@@ -66,7 +97,7 @@ export const BourbonForm = (props) => {
               proof: log.proof,
               age: log.age,
               batchNum: log.batchNum,
-              owned: log.owned,
+              owned: log.owned.checked,
               price: log.price,
               notes: log.notes,
               rating: log.rating,
@@ -80,7 +111,7 @@ export const BourbonForm = (props) => {
               proof: log.proof,
               age: log.age,
               batchNum: log.batchNum,
-              owned: log.owned,
+              owned: log.owned.current.checked,
               price: log.price,
               notes: log.notes,
               rating: log.rating,
@@ -90,10 +121,7 @@ export const BourbonForm = (props) => {
         }
     }
 
-    
-    
-
-
+  
 return ( 
 <>
   <h5 className="bourbonForm__title"> {editMode ? "Update Log" : "New Bourbon Log"}</h5>
@@ -124,7 +152,6 @@ return (
     <Form.Control type="text" name="batchNum" onChange={handleControlledInputChange} value={log.batchNum} placeholder="Batch number/name here" />
   </Form.Group>
   
-
   <h6>Do you own this bottle?</h6>
   <Form.Group controlId="ownedSwitch">
   <Form.Check 
@@ -137,8 +164,6 @@ return (
   />
   </Form.Group>
 
-  
-
   <Form.Group controlId="formPrice">
     <Form.Label>Price Paid</Form.Label>
     <Form.Control type="text" name="price" onChange={handleControlledInputChange} value={log.price} placeholder="Price for bottle or pour here" />
@@ -149,55 +174,32 @@ return (
     <Form.Control type="text" name="notes" onChange={handleControlledInputChange} value={log.notes} as="textarea" rows={3} placeholder="Overall impression here" />
   </Form.Group>
   
+
   <h5>Tasting Notes</h5>
 
-  <Form.Group controlId="flavorCheckbox">
-  
-    <Form.Check type="checkbox" label="Fruit" />
-  </Form.Group>
 
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Floral" />
-  </Form.Group>
+  {flavors.map(flavorObj => {
+      return (
+      
+        <Form class="range-field w-50">
+        <Form.Group controlId="formBasicRangeCustom">
+        <Form.Label>{flavorObj.flavor}</Form.Label>
+        <Form.Control  type="range" min="0" max="100" custom />
+        </Form.Group>
+        </Form>
+      
+        //<Form.Check key={flavorObj.id} type="checkbox" id={flavorObj.id} label={flavorObj.flavor} defaultChecked={false} onChange={(event) => {
+        //   handleShow(true)
+        //   HandleCheckbox(event)
+      )
+    }
+    )}
 
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Oak" />
-  </Form.Group>
 
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Nuts" />
-  </Form.Group>
 
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Spicy" />
-  </Form.Group>
+{/*I need this save button to also post flavors to database. */}
 
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Sweet" />
-  </Form.Group>
-
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Bread" />
-  </Form.Group>
-
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Earthy" />
-  </Form.Group>
-
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Grain" />
-  </Form.Group>
-
-  <Form.Group controlId="flavorCheckbox">
-    <Form.Check type="checkbox" label="Chocolate" />
-  </Form.Group>
-
-  <Form.Group controlId="formRating">
-    <Form.Label>Rating</Form.Label>
-    <Form.Control type="text" name="rating" onChange={handleControlledInputChange} value={log.rating} placeholder="How would you rate this bottle?" />
-  </Form.Group>
-
-  <Button onClick={(evt)=> 
+  <Button onClick={(evt)=>    
   { evt.preventDefault()
     constructNewBourbon() 
   }}
@@ -208,3 +210,4 @@ return (
 </>
 )
 }
+

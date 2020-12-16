@@ -8,14 +8,14 @@ export const LogProvider = (props) => {
   // useState returns [initial value of state variable, a function to set the value of the state variable]
 
   const GetLogs = (id) => {
-    return fetch(`http://localhost:8088/Logs?userId=${id}`)
+    return fetch(`http://localhost:8088/logs?userId=${id}`)
       .then(res => res.json())
       .then(setLogs).then((data) => console.log("HERES THE DATA", data))
     // .then(parsedLogs => setLogs(parsedLogs))
   }
 
   const AddLog = log => {
-    return fetch("http://localhost:8088/Logs", {
+    return fetch("http://localhost:8088/logs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -26,14 +26,14 @@ export const LogProvider = (props) => {
   }
 
   const DeleteLog = log => {
-    return fetch(`http://localhost:8088/Logs/${log}`, {
+    return fetch(`http://localhost:8088/logs/${log}`, {
       method: "DELETE"
     })
       .then(GetLogs)
   }
 
   const EditLog = log => {
-    return fetch(`http://localhost:8088/Logs/${log.id}`, {
+    return fetch(`http://localhost:8088/logs/${log.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
