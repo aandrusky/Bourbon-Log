@@ -25,9 +25,10 @@ export const BourbonList = (props) => {
     };
 
     useEffect(() => {
-        const userLogs = parseInt(localStorage.getItem("app_user_id"))
-        GetLogs(userLogs)
+        GetLogs()
     }, [])
+
+   
 
     return (
         <>

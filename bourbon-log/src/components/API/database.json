@@ -69,68 +69,13 @@
       "id": 7
     },
     {
-      "bourbonName": "Russell's Reserve 2002",
-      "distiller": "Wild Turkey",
-      "proof": "98.6",
-      "age": "28",
-      "batchNum": "n/a",
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "bourbonName": "TEST",
+      "bourbonName": "Henry McKenna 10 year",
       "distiller": "Heaven Hill",
       "userId": 1,
-      "id": 9
-    },
-    {
-      "bourbonName": "TEST 2",
-      "distiller": "asdf",
-      "userId": 1,
-      "id": 10
-    },
-    {
-      "bourbonName": "TEST 5",
-      "distiller": "Heaven Hill",
-      "userId": 1,
-      "id": 12
-    },
-    {
-      "id": 13,
-      "bourbonName": "TEST 666 (edited)",
-      "userId": 1
-    },
-    {
-      "id": 14,
-      "bourbonName": "TEST 7 (edited)",
-      "userId": 1
-    },
-    {
-      "id": 15,
-      "bourbonName": "TEST 8 (edited)",
-      "userId": 1
+      "id": 15
     }
   ],
-  "flavorsums": [
-    {
-      "flavorId": 1,
-      "flavorweight": 5,
-      "logId": 13,
-      "id": 1
-    },
-    {
-      "flavorId": 2,
-      "flavorweight": 5,
-      "logId": 13,
-      "id": 2
-    },
-    {
-      "flavorId": 3,
-      "flavorweight": 5,
-      "logId": 13,
-      "id": 3
-    }
-  ],
+  "flavorsums": [],
   "flavors": [
     {
       "id": 1,

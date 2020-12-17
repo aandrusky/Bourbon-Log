@@ -92,7 +92,7 @@ export const BourbonForm = (props) => {
 
     if (editMode) {
       EditLog({
-        id: +props.match.params.logId,
+        id: log.id, //+props.match.params.logId,
         bourbonName: log.bourbonName,
         distiller: log.distiller,
         proof: log.proof,

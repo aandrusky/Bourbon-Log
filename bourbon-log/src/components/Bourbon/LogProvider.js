@@ -7,8 +7,9 @@ export const LogProvider = (props) => {
   const [logs, setLogs] = useState([])
   // useState returns [initial value of state variable, a function to set the value of the state variable]
 
-  const GetLogs = (id) => {
-    return fetch(`http://localhost:8088/logs?userId=${id}`)
+  const GetLogs = () => {
+    const userLogs = parseInt(localStorage.getItem("app_user_id"))
+    return fetch(`http://localhost:8088/logs?userId=${userLogs}`)
       .then(res => res.json())
         .then(setLogs)   //.then((data) => console.log("HERES THE DATA", data))
     // .then(parsedLogs => setLogs(parsedLogs))
@@ -30,7 +31,9 @@ export const LogProvider = (props) => {
     return fetch(`http://localhost:8088/logs/${log}`, {
       method: "DELETE"
     })
-      .then(GetLogs)
+    .then(res => res.json())
+       .then(GetLogs)  
+     //.then((data) => console.log("HERES THE DELETE", data))
   }
 
   const EditLog = log => {
