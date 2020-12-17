@@ -18,7 +18,7 @@ const GetFlavorSums = () => {
   // .then(parsedFlavors => setFlavors(parsedFlavors))
 }
 
-const AddFlavorSums = flavor => {
+const AddFlavorSums = (flavor) => {
     return fetch("http://localhost:8088/flavorsums", {
       method: "POST",
       headers: {

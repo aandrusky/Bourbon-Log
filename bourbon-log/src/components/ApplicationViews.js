@@ -35,11 +35,13 @@ export const ApplicationViews = (props) => {
                 </FlavorProvider>
             </LogProvider>
 
+            <LogProvider>
             <FlavorSumProvider>
                 <Route path="/NewLog/:flavorId(\d+)" render={
                     props => <FlavorDetail {...props}/>
                 } />
             </FlavorSumProvider>
+            </LogProvider>
         </>
     )
 }

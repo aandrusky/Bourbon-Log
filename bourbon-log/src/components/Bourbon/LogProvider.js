@@ -10,7 +10,7 @@ export const LogProvider = (props) => {
   const GetLogs = (id) => {
     return fetch(`http://localhost:8088/logs?userId=${id}`)
       .then(res => res.json())
-      .then(setLogs).then((data) => console.log("HERES THE DATA", data))
+        .then(setLogs)   //.then((data) => console.log("HERES THE DATA", data))
     // .then(parsedLogs => setLogs(parsedLogs))
   }
 

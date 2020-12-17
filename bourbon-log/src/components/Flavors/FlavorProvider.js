@@ -9,7 +9,7 @@ const [flavorItem, setFlavors] = useState([])
 const GetFlavors = () => {
   return fetch("http://localhost:8088/flavors")
     .then(res => res.json())
-    .then(setFlavors).then((data) => console.log("HERES THE DATA", data))
+    .then(setFlavors)  //.then((data) => console.log("HERES THE DATA", data))
   // .then(parsedFlavors => setFlavors(parsedFlavors))
 }
 

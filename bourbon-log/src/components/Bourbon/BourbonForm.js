@@ -20,19 +20,30 @@ export const BourbonForm = (props) => {
   //This checks if my object has a "logId" tied to it. If it does, then it means it's been created, and exists, therefore, not new.
   const editMode = props.match.params.hasOwnProperty("logId")  
 
-  const flavorSumLogger = (event) => {            //this gets called everytime a slider is adjusted (onChange)
-    const flavorId = parseInt(event.target.id)           //gets our id from our flavorsums resource- declared by the context provider above
-    const newFlavorSumObjects = flavorSumObjects.slice()  //<newFlavorSumObjects is a copy of our state variable array
-    const foundFlavorObject = flavorSumObjects.find(flavor => flavor.flavorId === flavorId)  //loops through my array to find any instance of flavorId
-    const flavorweight = parseInt(event.target.value)  //gets our flavorweight from the flavorsums resources and sticks it in a variable. 
-    if (foundFlavorObject !== undefined) {        //checks if found items from loop are undefined (empty object with no value- slider was never adjusted)
-      foundFlavorObject.flavorweight = flavorweight  //and if they are NOT undefined, then we can take that value and assign it as flavorweight
-    } else {
-      newFlavorSumObjects.push({ flavorId, flavorweight }) //otherwise add the found ID and WEIGHT to our array copy
-    }
-    setFlavorSumObjects(newFlavorSumObjects)   //I call my setState function and pass in my now filled array copy as an its new
 
-  }
+
+
+
+  const flavorSumLogger = (event) => {                          //this gets called everytime a slider is adjusted (onChange)
+    const logId = parseInt(props.match.params.logId)
+    const flavorId = parseInt(event.target.id)                  //gets our id from our flavorsums resource- declared by the context provider above
+    const newFlavorSumObjects = flavorSumObjects.slice()        //<newFlavorSumObjects is a copy of our state variable array
+    const foundFlavorObject = flavorSumObjects.find(flavor => flavor.flavorId === flavorId)  //loops through my array to find any instance of flavorId
+    const flavorweight = parseInt(event.target.value)           //gets our flavorweight from the flavorsums resources and sticks it in a variable. 
+    if (foundFlavorObject !== undefined) {                      //checks if found items from loop are undefined (empty object with no value- slider was never adjusted)
+      foundFlavorObject.flavorweight = flavorweight             //and if they are NOT undefined, then we can take that value and assign it as flavorweight
+    } else {
+      newFlavorSumObjects.push({ flavorId, flavorweight, logId }) //otherwise add the found ID and WEIGHT to our array copy
+    }
+    setFlavorSumObjects(newFlavorSumObjects)                    //I call my setState function and pass in my now filled array copy as an its new
+
+    {console.log("LOGID", logId)}
+  } 
+  {console.log("PROPS", props)}
+
+
+
+
 
   const handleControlledInputChange = (event) => {
     /*
@@ -81,7 +92,7 @@ export const BourbonForm = (props) => {
 
     if (editMode) {
       EditLog({
-        id: log.id,
+        id: +props.match.params.logId,
         bourbonName: log.bourbonName,
         distiller: log.distiller,
         proof: log.proof,
@@ -93,7 +104,11 @@ export const BourbonForm = (props) => {
         rating: log.rating,
         userId: parseInt(localStorage.getItem("app_user_id"))
       })
-        .then(() => props.history.push("/ViewList"))
+      .then(() => {
+
+        flavorSumObjects.forEach(singleFlavorSumObj=>AddFlavorSums(singleFlavorSumObj))
+      })
+      .then(() => props.history.push("/ViewList"))
     } else {
       AddLog({
         bourbonName: log.bourbonName,
@@ -106,10 +121,11 @@ export const BourbonForm = (props) => {
         notes: log.notes,
         rating: log.rating,
         userId: parseInt(localStorage.getItem("app_user_id"))
-      })
-
+      }) 
+      .then(() => props.history.push("/ViewList"))
+          
         //.then addflavorsums, pass flavorSumLogger, which will need to loop through the sliders and grab values that !0
-        .then(() => props.history.push("/ViewList"))
+        
     }
   }
 
