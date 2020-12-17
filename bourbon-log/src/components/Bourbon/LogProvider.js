@@ -22,7 +22,8 @@ export const LogProvider = (props) => {
       },
       body: JSON.stringify(log)
     })
-      .then(res => res.json())
+       .then(res => res.json())
+       .then(GetLogs)
   }
 
   const DeleteLog = log => {

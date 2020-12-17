@@ -60,54 +60,19 @@
       "userId": 1
     },
     {
-      "bourbonName": "Test Bourbon",
-      "distiller": "Distillery Supreme",
+      "bourbonName": "Russell's Reserve 2002",
+      "distiller": "Wild Turkey",
       "proof": "105",
-      "age": "12",
-      "batchNum": "2",
-      "price": "99",
-      "notes": "asdf",
-      "rating": "asdf",
+      "age": "15",
+      "batchNum": "n/a",
+      "price": "250",
+      "notes": "too pricey",
+      "rating": "7",
       "userId": 2,
       "id": 6
-    },
-    {
-      "bourbonName": "Test Bourbonasdfasdf",
-      "distiller": "10",
-      "proof": "98.6",
-      "age": "28",
-      "batchNum": "4395",
-      "owned": "",
-      "price": "45",
-      "notes": "asdadfsdf",
-      "userId": 2,
-      "id": 7
-    },
-    {
-      "bourbonName": "asdfasdfasfd",
-      "distiller": "asdfafsd",
-      "proof": "asdfadf",
-      "age": "asdasdf",
-      "batchNum": "aasdfafd",
-      "price": "40",
-      "notes": "asdfa",
-      "userId": 2,
-      "id": 8
     }
   ],
   "flavorsums": [
-    {
-      "id": 17,
-      "flavorId": 1,
-      "flavorweight": 70,
-      "logId": 15
-    },
-    {
-      "id": 18,
-      "flavorId": 2,
-      "Flavorweight": 25,
-      "logId": 15
-    },
     {
       "flavorId": 3,
       "flavorweight": 50,

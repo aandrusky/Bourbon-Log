@@ -52,7 +52,6 @@ export const BourbonList = (props) => {
                                     <Card.Text>
                                         <p>Batch {logObj.batchNum}</p>
                                         <p>Proof {logObj.proof}</p>
-                                        <p>Owned {logObj.owned}</p>
                                     </Card.Text>
                                     <Button onClick={() => handleShow(logObj)} variant="primary">View Log</Button>
                                 </Card.Body>
