@@ -17,6 +17,12 @@
       "password": "123",
       "name": "Kylo Sven",
       "id": 4
+    },
+    {
+      "email": "alanandrosky@gmail.com",
+      "password": "1234",
+      "name": "Allen Androsky",
+      "id": 5
     }
   ],
   "logs": [
@@ -34,7 +40,8 @@
       "photo": ""
     },
     {
-      "bourbonName": "Blood Oath Pact No 6",
+      "id": 4,
+      "bourbonName": "Blood Oath Pact No 6 (my edit works)",
       "distiller": "Lux Row",
       "proof": "98.6",
       "age": "Blend of 14 Year, 8 Year, and 7 Year Kentucky Straight Rye-Based Bourbons",
@@ -43,14 +50,13 @@
       "price": "99",
       "notes": "Overall Pact No. 6 with its Cognac finish is a flavorful barrel finished bourbon that drinks easy thanks to its sweet palate. Its Cognac finish is surprisingly inoffensive, well integrated, and long lasting.",
       "rating": "8/10",
-      "userId": 1,
-      "id": 4
+      "userId": 1
     },
     {
       "id": 5,
       "bourbonName": "Henry McKenna 10 year",
       "distiller": "Heaven Hill",
-      "proof": "100",
+      "proof": "105",
       "age": "100",
       "batchNum": "4395",
       "owned": "",
@@ -69,10 +75,25 @@
       "id": 7
     },
     {
-      "bourbonName": "Henry McKenna 10 year",
-      "distiller": "Heaven Hill",
-      "userId": 1,
-      "id": 15
+      "id": 8,
+      "bourbonName": "Weller 12  EDITED",
+      "distiller": "Buffalo Trace",
+      "proof": "90",
+      "age": "12",
+      "batchNum": "n/a",
+      "price": "55",
+      "notes": "As part of the wheated bourbon family, this twelve year old W.L. Weller is aged far longer than most wheated bourbons. This offering is a smooth, easy-going and balanced offering with a beautiful deep bronze color.",
+      "rating": "9/10",
+      "userId": 1
+    },
+    {
+      "bourbonName": "Russell's Reserve 2002",
+      "distiller": "Wild Turkey",
+      "proof": "98.6",
+      "age": "28",
+      "batchNum": "4395",
+      "userId": 5,
+      "id": 9
     }
   ],
   "flavorsums": [],

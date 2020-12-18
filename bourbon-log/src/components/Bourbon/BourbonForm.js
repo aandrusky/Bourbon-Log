@@ -97,6 +97,7 @@ export const BourbonForm = (props) => {
         distiller: log.distiller,
         proof: log.proof,
         age: log.age,
+        mouth: log.mouth,
         batchNum: log.batchNum,
         owned: log.owned,
         price: log.price,
@@ -115,6 +116,7 @@ export const BourbonForm = (props) => {
         distiller: log.distiller,
         proof: log.proof,
         age: log.age,
+        mouth: log.mouth,
         batchNum: log.batchNum,
         owned: log.owned,
         price: log.price,
@@ -148,6 +150,11 @@ export const BourbonForm = (props) => {
         <Form.Group controlId="formProof">
           <Form.Label>Proof</Form.Label>
           <Form.Control type="text" name="proof" onChange={handleControlledInputChange} value={log.proof} placeholder="Proof # here" />
+        </Form.Group>
+
+        <Form.Group controlId="formMouth">
+          <Form.Label>Mouth Feel</Form.Label>
+          <Form.Control type="text" name="mouth" onChange={handleControlledInputChange} value={log.mouth} placeholder="describe mouth feel" />
         </Form.Group>
 
         <Form.Group controlId="formAge">
