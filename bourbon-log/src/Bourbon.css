@@ -1,0 +1,18 @@
+.btn {
+    color: white
+}
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 13rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
+
+}
+
+.Button-list {
+    
+    padding-bottom: 3rem;
+}
+

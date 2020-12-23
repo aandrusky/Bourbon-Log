@@ -3,6 +3,7 @@ import { LogContext } from "./LogProvider"
 import { FlavorSumsContext } from "../Flavors/FlavorSumProvider"
 import { FlavorContext } from "../Flavors/FlavorProvider"
 import { Form, Button } from "react-bootstrap"
+import { FlavorFunctionGenerator } from "../Flavors/FlavorFunction"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -97,7 +98,6 @@ export const BourbonForm = (props) => {
         distiller: log.distiller,
         proof: log.proof,
         age: log.age,
-        mouth: log.mouth,
         batchNum: log.batchNum,
         owned: log.owned,
         price: log.price,
@@ -116,7 +116,6 @@ export const BourbonForm = (props) => {
         distiller: log.distiller,
         proof: log.proof,
         age: log.age,
-        mouth: log.mouth,
         batchNum: log.batchNum,
         owned: log.owned,
         price: log.price,
@@ -124,6 +123,16 @@ export const BourbonForm = (props) => {
         rating: log.rating,
         userId: parseInt(localStorage.getItem("app_user_id"))
       }) 
+      .then((logReturnedFromApi) => {
+
+        flavorSumObjects.forEach(singleFlavorSumObj=> {
+          
+          singleFlavorSumObj.logId = logReturnedFromApi.id
+          AddFlavorSums(singleFlavorSumObj)
+      
+      })
+      })
+
       .then(() => props.history.push("/ViewList"))
           
         //.then addflavorsums, pass flavorSumLogger, which will need to loop through the sliders and grab values that !0
@@ -150,11 +159,6 @@ export const BourbonForm = (props) => {
         <Form.Group controlId="formProof">
           <Form.Label>Proof</Form.Label>
           <Form.Control type="text" name="proof" onChange={handleControlledInputChange} value={log.proof} placeholder="Proof # here" />
-        </Form.Group>
-
-        <Form.Group controlId="formMouth">
-          <Form.Label>Mouth Feel</Form.Label>
-          <Form.Control type="text" name="mouth" onChange={handleControlledInputChange} value={log.mouth} placeholder="describe mouth feel" />
         </Form.Group>
 
         <Form.Group controlId="formAge">
@@ -219,7 +223,9 @@ export const BourbonForm = (props) => {
 
         <Button onClick={(evt) => {
           evt.preventDefault()
+          console.log("FSOBJ", flavorSumObjects)
           constructNewBourbon()
+          
         }}
           variant="primary" size="lg" type="submit" block>
           Save Log

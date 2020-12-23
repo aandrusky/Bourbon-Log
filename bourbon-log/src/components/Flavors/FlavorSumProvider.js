@@ -12,7 +12,7 @@ const [flavors, setFlavorsSums] = useState([])
 
 //I dont think I use
 const GetFlavorSums = () => {
-  return fetch("http://localhost:8088/flavorsums")
+  return fetch("http://localhost:8088/flavorsums?_expand=flavor")
     .then(res => res.json())
     .then(setFlavorsSums).then((data) => console.log("HERES THE DATA", data))
   // .then(parsedFlavors => setFlavors(parsedFlavors))

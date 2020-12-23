@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { LogContext } from './LogProvider'
+import { FlavorSumsContext } from '../Flavors/FlavorSumProvider'
+import { FlavorFunctionGenerator } from "../Flavors/FlavorFunction"
+import { Pie } from 'react-chartjs-2';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Modal from 'react-bootstrap/Modal'
@@ -11,8 +14,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export const BourbonList = (props) => {
 
     const { DeleteLog, GetLogs, logs } = useContext(LogContext)
+    const { GetFlavorSums, flavors} = useContext(FlavorSumsContext)
 
     const [selectedBourbon, setSelectedBourbon] = useState({})
+    const [flavorSumObj, setFlavorsSums] = useState({})
+    
     const [show, setShow] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
@@ -28,7 +34,9 @@ export const BourbonList = (props) => {
         GetLogs()
     }, [])
 
-   
+    useEffect(() => {
+        GetFlavorSums()
+    }, [])
 
     return (
         <>
@@ -44,7 +52,7 @@ export const BourbonList = (props) => {
 
                             // I only want to return cards (logs) that include a matching user id to the localStorage.getItem.h
                             
-
+                            
                             <Card key={logObj.id} style={{ width: '18rem' }}>
 
                                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
@@ -54,7 +62,15 @@ export const BourbonList = (props) => {
                                         <p>Batch {logObj.batchNum}</p>
                                         <p>Proof {logObj.proof}</p>
                                     </Card.Text>
-                                    <Button onClick={() => handleShow(logObj)} variant="primary">View Log</Button>
+                                    <Button onClick={() => {
+                                        
+                                        handleShow(logObj)
+                                        // FlavorFunctionGenerator()
+                                    }} 
+                                    variant="primary">
+                                    View Log
+                                    </Button>
+                                
                                 </Card.Body>
                             </Card>
 
@@ -62,12 +78,14 @@ export const BourbonList = (props) => {
                     })
                 }
 
+               
+
                 {selectedBourbon.id
                     ? <Modal show={show} onHide={handleClose}
-                        {...props}
-                        size="lg"
-                        aria-labelledby="contained-modal-title-vcenter"
-                        centered>
+                    {...props}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered>
 
                         <Modal.Header >
                             <Modal.Title>{selectedBourbon.bourbonName}</Modal.Title>
@@ -75,7 +93,7 @@ export const BourbonList = (props) => {
 
                         </Modal.Header>
                         <Modal.Body>
-                            <div>
+                            <div className="bourbonDataCard">                         {/* <= put in div, then make another div for chart, set each in a col with bootstrap logic*/}
                                 <p>Distillery: {selectedBourbon.distiller} </p>
                                 <p>Proof: {selectedBourbon.proof} </p>
                                 <p> Age: {selectedBourbon.age} years </p>
@@ -83,7 +101,27 @@ export const BourbonList = (props) => {
                                 <p> Rated: {selectedBourbon.rating} </p>
                                 <p> Notes: {selectedBourbon.notes} </p>
                             </div>
-
+                                 <FlavorFunctionGenerator {...props}/>
+                            <div>
+                            <div className="chartContainer">
+                    <Pie>
+                        data={{
+                            labels: [flavors.flavor.name],
+                            datasets: [
+                                {
+                                    label: 'flavor weight by %',
+                                    data: [flavors.flavorweight]
+                                }
+                            ]
+                        }}
+                        height={150}
+                        width={200}
+                        options={{
+                            maintainAspectRatio: false,
+                        }}
+                    </Pie>
+                </div>
+                            </div>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={() => {

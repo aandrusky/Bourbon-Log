@@ -94,9 +94,37 @@
       "batchNum": "4395",
       "userId": 5,
       "id": 9
+    },
+    {
+      "bourbonName": "Test Bourbon",
+      "distiller": "Heaven Hill",
+      "proof": "98.6",
+      "age": "Blend of 14 Year, 8 Year, and 7 Year Kentucky Straight Rye-Based Bourbons",
+      "batchNum": "n/a",
+      "userId": 5,
+      "id": 17
     }
   ],
-  "flavorsums": [],
+  "flavorsums": [
+    {
+      "flavorId": 1,
+      "flavorweight": 96,
+      "logId": 17,
+      "id": 4
+    },
+    {
+      "flavorId": 2,
+      "flavorweight": 95,
+      "logId": 17,
+      "id": 5
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 95,
+      "logId": 17,
+      "id": 6
+    }
+  ],
   "flavors": [
     {
       "id": 1,
