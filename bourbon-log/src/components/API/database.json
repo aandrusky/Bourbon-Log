@@ -103,6 +103,17 @@
       "batchNum": "n/a",
       "userId": 5,
       "id": 17
+    },
+    {
+      "bourbonName": "TESTER",
+      "distiller": "Heaven Hill",
+      "proof": "98.6",
+      "age": "28",
+      "batchNum": "n/a",
+      "price": "45",
+      "notes": "TEST TEST TEST",
+      "userId": 5,
+      "id": 18
     }
   ],
   "flavorsums": [
@@ -123,6 +134,24 @@
       "flavorweight": 95,
       "logId": 17,
       "id": 6
+    },
+    {
+      "flavorId": 1,
+      "flavorweight": 48,
+      "logId": 18,
+      "id": 7
+    },
+    {
+      "flavorId": 2,
+      "flavorweight": 47,
+      "logId": 18,
+      "id": 8
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 47,
+      "logId": 18,
+      "id": 9
     }
   ],
   "flavors": [

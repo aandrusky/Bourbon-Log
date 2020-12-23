@@ -2,7 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { BourbonForm } from './Bourbon/BourbonForm'
 import { BourbonList } from './Bourbon/BourbonList'
-// import { BourbonDetail } from './Bourbon/BourbonDetail'
+// import { FlavorFunctionGenerator } from "./Flavors/FlavorFunction"
 import { Home } from './Nav/Home'
 import { LogProvider } from "./Bourbon/LogProvider"
 import { FlavorSumProvider } from './Flavors/FlavorSumProvider'
@@ -22,14 +22,14 @@ export const ApplicationViews = (props) => {
                 <Route path="/NewLog" render={
                     props => <BourbonForm {...props} />
                 } />
-                {/* <Route path="/NewLog/:logId(\d+)" render={
-                    props => <BourbonDetail {...props} />
-                } /> */}
                 <Route path="/logs/edit/:logId(\d+)" render={
                     props => <BourbonForm {...props} />
                 } />
                 <Route path="/ViewList" render={
-                    props => <BourbonList {...props} />
+                    props => <>
+                    <BourbonList {...props} />
+                    {/* <FlavorFunctionGenerator {...props}/> */}
+                   </>
                 } />
                     </FlavorSumProvider>
                 </FlavorProvider>

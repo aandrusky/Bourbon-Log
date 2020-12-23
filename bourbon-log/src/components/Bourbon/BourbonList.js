@@ -65,7 +65,7 @@ export const BourbonList = (props) => {
                                     <Button onClick={() => {
                                         
                                         handleShow(logObj)
-                                        // FlavorFunctionGenerator()
+                                       
                                     }} 
                                     variant="primary">
                                     View Log
@@ -100,28 +100,12 @@ export const BourbonList = (props) => {
                                 <p> Batch: {selectedBourbon.batchNum} </p>
                                 <p> Rated: {selectedBourbon.rating} </p>
                                 <p> Notes: {selectedBourbon.notes} </p>
+                               <FlavorFunctionGenerator />
                             </div>
-                                 <FlavorFunctionGenerator {...props}/>
-                            <div>
-                            <div className="chartContainer">
-                    <Pie>
-                        data={{
-                            labels: [flavors.flavor.name],
-                            datasets: [
-                                {
-                                    label: 'flavor weight by %',
-                                    data: [flavors.flavorweight]
-                                }
-                            ]
-                        }}
-                        height={150}
-                        width={200}
-                        options={{
-                            maintainAspectRatio: false,
-                        }}
-                    </Pie>
-                </div>
-                            </div>
+                               
+                            
+                                
+                           
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={() => {

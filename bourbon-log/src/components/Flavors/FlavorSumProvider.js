@@ -14,7 +14,7 @@ const [flavors, setFlavorsSums] = useState([])
 const GetFlavorSums = () => {
   return fetch("http://localhost:8088/flavorsums?_expand=flavor")
     .then(res => res.json())
-    .then(setFlavorsSums).then((data) => console.log("HERES THE DATA", data))
+    .then(setFlavorsSums)
   // .then(parsedFlavors => setFlavors(parsedFlavors))
 }
 
