@@ -15,7 +15,7 @@ export const FlavorFunctionGenerator = () => {       //purpose of this function 
    
 
     useEffect(() => {
-        GetFlavors().then(GetFlavorSums)
+        GetFlavors().then(GetFlavorSums)  //<<<< need getflavorsbyid?
     }, [])
 
     useEffect(() => {

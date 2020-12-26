@@ -29,12 +29,17 @@ const AddFlavorSums = (flavor) => {
       .then(GetFlavorSums)
   }
 
+  const GetFlavorsById = (logId) => {
+    return fetch(`http://localhost:8088/flavorsums?logId=${logId}`)
+      .then(res => res.json())
+  }
+
   
 
   return (
     <FlavorSumsContext.Provider value={
       {
-        flavors, AddFlavorSums, GetFlavorSums, 
+        flavors, AddFlavorSums, GetFlavorSums, GetFlavorsById 
       }
     }>
       {props.children}
