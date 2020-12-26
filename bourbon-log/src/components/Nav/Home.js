@@ -9,15 +9,15 @@ export const Home = (props) => {
         <>
             <div className="homeContainer">
                 
-                        <Button className="Button-list" size="lg" onClick={() => props.history.push("/ViewList")}>
+                        <Button className="Button-list"  size="lg" onClick={() => props.history.push("/ViewList")}>
                             View List
-                        </Button>{' '}
+                        </Button>
 
                         <Button className="Button-Log" size="lg" onClick={() => props.history.push("/NewLog")}>
                             New Log
-                        </Button>{' '}
+                        </Button>
 
-                        <Button className="Button-Logout" size="lg" onClick={() => {
+                        <Button className="Button-Logout" variant="secondary" size="lg" onClick={() => {
                             Logout()
                             props.history.push("/NewLog")
                         }}>

@@ -42,9 +42,9 @@ export const BourbonList = (props) => {
         <>
             <h1>BourbonList</h1>
 
-            <button className="Back-Button" onClick={() => props.history.push("/")}>Back</button>
+            <Button className="Back-Button" variant="secondary" onClick={() => props.history.push("/")}>Back</Button>
 
-            <div>
+            <div className="listContainer">
                 {
                     logs.map(logObj => {
 
@@ -53,13 +53,12 @@ export const BourbonList = (props) => {
                             // I only want to return cards (logs) that include a matching user id to the localStorage.getItem.h
                             
                             
-                            <Card key={logObj.id} style={{ width: '18rem' }}>
+                            <Card className="text-center" key={logObj.id} style={{ width: '18rem' }}>
 
                                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                                 <Card.Body>
                                     <Card.Title>{logObj.bourbonName}</Card.Title>
-                                    <Card.Text>
-                                        <p>Batch {logObj.batchNum}</p>
+                                    <Card.Text >
                                         <p>Proof {logObj.proof}</p>
                                     </Card.Text>
                                     <Button onClick={() => {

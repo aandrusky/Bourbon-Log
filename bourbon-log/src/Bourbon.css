@@ -5,14 +5,33 @@
 .homeContainer {
     display: flex;
     flex-direction: column;
-    padding-top: 13rem;
+    padding-top: 2rem;
     padding-right: 5rem;
     padding-left: 5rem;
+    padding-bottom: 15rem;
 
 }
 
-.Button-list {
+.Button-list.btn.btn-primary.btn-lg {
     
-    padding-bottom: 3rem;
+    padding: 5rem;
+    margin-bottom: 15px;
 }
 
+.Button-Log.btn.btn-primary.btn-lg{
+
+    padding: 5rem;
+    margin-bottom: 150px;
+    
+}
+
+.listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    margin: 1rem;
+    flex-shrink: 3;
+}
