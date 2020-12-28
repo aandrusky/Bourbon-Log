@@ -1,5 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
+import {Form} from "react-bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "./Login.css"
 
 
@@ -44,7 +46,7 @@ export const Login = props => {
                 <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
             </dialog>
             <section>
-                <form className="form--login" onSubmit={handleLogin}>
+                <Form className="form--login" onSubmit={handleLogin}>
                     <h1>Bourbon.log()</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
@@ -68,7 +70,7 @@ export const Login = props => {
                             Sign in
                         </button>
                     </fieldset>
-                </form>
+                </Form>
             </section>
             <section className="link--register">
                 <Link to="/register">Logging in for the first time?</Link>

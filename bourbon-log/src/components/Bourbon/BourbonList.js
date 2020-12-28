@@ -99,7 +99,7 @@ export const BourbonList = (props) => {
                                 <p> Batch: {selectedBourbon.batchNum} </p>
                                 <p> Rated: {selectedBourbon.rating} </p>
                                 <p> Notes: {selectedBourbon.notes} </p>
-                               <FlavorFunctionGenerator />
+                               <FlavorFunctionGenerator logId={selectedBourbon.id} />
                             </div>
                                
                             

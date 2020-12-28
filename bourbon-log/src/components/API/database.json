@@ -114,6 +114,23 @@
       "notes": "TEST TEST TEST",
       "userId": 5,
       "id": 18
+    },
+    {
+      "bourbonName": "Eagle Rare Tester",
+      "distiller": "Buffalo Trace",
+      "proof": "90",
+      "age": "10",
+      "batchNum": "n/a",
+      "owned": "",
+      "price": "35",
+      "rating": "8/10",
+      "userId": 5,
+      "id": 19
+    },
+    {
+      "bourbonName": "Henry McKenna 10 year",
+      "userId": 1,
+      "id": 20
     }
   ],
   "flavorsums": [
@@ -152,6 +169,48 @@
       "flavorweight": 47,
       "logId": 18,
       "id": 9
+    },
+    {
+      "flavorId": 5,
+      "flavorweight": 11,
+      "logId": 19,
+      "id": 10
+    },
+    {
+      "flavorId": 6,
+      "flavorweight": 13,
+      "logId": 19,
+      "id": 11
+    },
+    {
+      "flavorId": 7,
+      "flavorweight": 23,
+      "logId": 19,
+      "id": 12
+    },
+    {
+      "flavorId": 8,
+      "flavorweight": 5,
+      "logId": 19,
+      "id": 13
+    },
+    {
+      "flavorId": 1,
+      "flavorweight": 31,
+      "logId": 20,
+      "id": 14
+    },
+    {
+      "flavorId": 2,
+      "flavorweight": 31,
+      "logId": 20,
+      "id": 15
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 31,
+      "logId": 20,
+      "id": 16
     }
   ],
   "flavors": [

@@ -38,9 +38,9 @@ export const BourbonForm = (props) => {
     }
     setFlavorSumObjects(newFlavorSumObjects)                    //I call my setState function and pass in my now filled array copy as an its new
 
-    {console.log("LOGID", logId)}
+    
   } 
-  {console.log("PROPS", props)}
+  
 
 
 

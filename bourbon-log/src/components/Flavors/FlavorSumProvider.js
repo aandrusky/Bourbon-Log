@@ -30,8 +30,10 @@ const AddFlavorSums = (flavor) => {
   }
 
   const GetFlavorsById = (logId) => {
-    return fetch(`http://localhost:8088/flavorsums?logId=${logId}`)
+    return fetch(`http://localhost:8088/flavorsums?_expand=flavor&logId=${logId}`)
       .then(res => res.json())
+      .then(setFlavorsSums)
+     // .then(GetFlavorSums)
   }
 
   
