@@ -200,7 +200,7 @@ export const BourbonForm = (props) => {
         </Form.Group>
 
 
-        <h5 className="NotesHeader">Tasting Notes</h5>
+        <h3 className="NotesHeader">Tasting Notes</h3>
 
         {/*my console log does grab the slider value. that number is the user's assigned 'weight'. On save, I need to grab only the values >0. */}
 

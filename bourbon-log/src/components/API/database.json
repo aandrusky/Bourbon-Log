@@ -105,17 +105,6 @@
       "id": 17
     },
     {
-      "bourbonName": "TESTER",
-      "distiller": "Heaven Hill",
-      "proof": "98.6",
-      "age": "28",
-      "batchNum": "n/a",
-      "price": "45",
-      "notes": "TEST TEST TEST",
-      "userId": 5,
-      "id": 18
-    },
-    {
       "bourbonName": "Eagle Rare Tester",
       "distiller": "Buffalo Trace",
       "proof": "90",
@@ -143,6 +132,17 @@
       "rating": "10",
       "userId": 5,
       "id": 21
+    },
+    {
+      "bourbonName": "Pappy Van Winkle's 15 Year Family Reserve",
+      "distiller": "Buffalo Trace",
+      "proof": "53.5",
+      "age": "15",
+      "batchNum": "2020",
+      "price": "129.99",
+      "notes": "Expressly produced according to the exclusive Van Winkle family wheated-recipe and specially selected from barrels in the heart of the aging warehouses, this bourbon remained undisturbed for 15 years to age in deep-charred heavy oak untouched by human hands, unhurried by time.",
+      "userId": 5,
+      "id": 22
     }
   ],
   "flavorsums": [
@@ -163,24 +163,6 @@
       "flavorweight": 95,
       "logId": 17,
       "id": 6
-    },
-    {
-      "flavorId": 1,
-      "flavorweight": 48,
-      "logId": 18,
-      "id": 7
-    },
-    {
-      "flavorId": 2,
-      "flavorweight": 47,
-      "logId": 18,
-      "id": 8
-    },
-    {
-      "flavorId": 3,
-      "flavorweight": 47,
-      "logId": 18,
-      "id": 9
     },
     {
       "flavorId": 5,
@@ -259,6 +241,42 @@
       "flavorweight": 29,
       "logId": 21,
       "id": 22
+    },
+    {
+      "flavorId": 1,
+      "flavorweight": 43,
+      "logId": 22,
+      "id": 23
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 35,
+      "logId": 22,
+      "id": 24
+    },
+    {
+      "flavorId": 5,
+      "flavorweight": 8,
+      "logId": 22,
+      "id": 25
+    },
+    {
+      "flavorId": 6,
+      "flavorweight": 20,
+      "logId": 22,
+      "id": 26
+    },
+    {
+      "flavorId": 7,
+      "flavorweight": 44,
+      "logId": 22,
+      "id": 27
+    },
+    {
+      "flavorId": 10,
+      "flavorweight": 4,
+      "logId": 22,
+      "id": 28
     }
   ],
   "flavors": [
