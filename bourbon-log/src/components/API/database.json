@@ -131,6 +131,18 @@
       "bourbonName": "Henry McKenna 10 year",
       "userId": 1,
       "id": 20
+    },
+    {
+      "bourbonName": "Stagg Jr.",
+      "distiller": "Buffalo Trace",
+      "proof": "131.1",
+      "age": "8",
+      "batchNum": "15",
+      "price": "55",
+      "notes": "This is delicious",
+      "rating": "10",
+      "userId": 5,
+      "id": 21
     }
   ],
   "flavorsums": [
@@ -211,6 +223,42 @@
       "flavorweight": 31,
       "logId": 20,
       "id": 16
+    },
+    {
+      "flavorId": 1,
+      "flavorweight": 48,
+      "logId": 21,
+      "id": 17
+    },
+    {
+      "flavorId": 6,
+      "flavorweight": 40,
+      "logId": 21,
+      "id": 18
+    },
+    {
+      "flavorId": 10,
+      "flavorweight": 22,
+      "logId": 21,
+      "id": 19
+    },
+    {
+      "flavorId": 4,
+      "flavorweight": 9,
+      "logId": 21,
+      "id": 20
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 9,
+      "logId": 21,
+      "id": 21
+    },
+    {
+      "flavorId": 7,
+      "flavorweight": 29,
+      "logId": 21,
+      "id": 22
     }
   ],
   "flavors": [

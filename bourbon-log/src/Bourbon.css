@@ -1,6 +1,3 @@
-.btn {
-    color: white
-}
 
 .homeContainer {
     display: flex;
@@ -9,12 +6,64 @@
     padding-right: 5rem;
     padding-left: 5rem;
     padding-bottom: 15rem;
+    background-color: #4D5C69;
 
 }
+
+.homeHeader{
+text-align: center;
+color: whitesmoke
+
+}
+
+.BourbonFormContainer{
+    padding: 2rem;
+    background-color:  #4D5C69;
+    
+}
+.bourbonForm__title{
+    text-align: center;
+    color: whitesmoke;
+}
+
+form label{
+    color: whitesmoke;
+  }
+
+
+
+
+
+  .form-control-range {
+      color: red;
+      
+  }
+
+
+
+
+
+  .NotesHeader{
+    text-align: center;
+    color: whitesmoke
+  }
+
+
+ .BourbonListContainer{
+    padding: 2rem;
+    background-color: #4D5C69;
+} 
+
+.BourbonListHeader{
+color: whitesmoke
+}
+
+
 
 .Button-list.btn.btn-primary.btn-lg {
     
     padding: 5rem;
+    margin-top: 25px;
     margin-bottom: 15px;
 }
 
@@ -25,13 +74,85 @@
     
 }
 
-.listContainer {
+
+
+.CardContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 25px;
 }
 
 .card{
-    margin: 1rem;
-    flex-shrink: 3;
+    margin: .5rem; 
+
 }
+
+
+.card-body{
+    background-color: #CDB87E;
+    border: none;
+}
+
+.btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 136, 0.25);
+}
+
+.btn-primary {
+    color: #fff;
+  
+}
+
+.SaveButton.btn.btn-primary.btn-block.btn-lg {
+    background-color: #9d482a;
+      color: whitesmoke;
+      border-color: #9d482a
+}
+
+.SaveButton.btn.btn-primary.btn-block.btn-lg:active {
+    background-color:#823c23;
+    color: white;
+    border-color: #823c23
+}
+
+.Buttoncard.btn.btn-primary.btn-lg{
+    background-color: #9d482a;
+      color: whitesmoke;
+      border-color: #9d482a
+}
+
+.Buttoncard.btn.btn-primary.btn-lg:active{
+    background-color:#823c23;
+      color: white;
+      border-color: #823c23
+}
+
+
+
+
+
+
+ .Button-list.btn.btn-primary.btn-lg{
+    background-color: #9d482a;
+      color: whitesmoke;
+      border-color: #9d482a
+}
+
+.Button-list.btn.btn-primary.btn-lg:active{
+    background-color:#823c23;
+      color: white;
+      border-color: #823c23
+}
+
+.Button-Log.btn.btn-primary.btn-lg{
+    background-color: #9d482a;
+      color: whitesmoke;
+      border-color: #9d482a
+} 
+
+.Button-Log.btn.btn-primary.btn-lg:active{
+    background-color:#823c23;
+      color: whitesmoke;
+      border-color: #823c23
+} 

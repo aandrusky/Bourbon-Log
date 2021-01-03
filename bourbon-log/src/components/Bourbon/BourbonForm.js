@@ -142,11 +142,12 @@ export const BourbonForm = (props) => {
 
 
   return (
-    <>
-      <h5 className="bourbonForm__title"> {editMode ? "Update Log" : "New Bourbon Log"}</h5>
+    
+    <div className="BourbonFormContainer">
+      <h1 className="bourbonForm__title"> {editMode ? "Update Log" : "New Bourbon Log"}</h1>
       <Form >
         <Form.Group controlId="formBourbonName">
-          <Form.Label>Bourbon Name</Form.Label>
+          <Form.Label >Bourbon Name</Form.Label>
           <Form.Control type="text" name="bourbonName" onChange={handleControlledInputChange} value={log.bourbonName} placeholder="Bourbon name here" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
@@ -199,7 +200,7 @@ export const BourbonForm = (props) => {
         </Form.Group>
 
 
-        <h5>Tasting Notes</h5>
+        <h5 className="NotesHeader">Tasting Notes</h5>
 
         {/*my console log does grab the slider value. that number is the user's assigned 'weight'. On save, I need to grab only the values >0. */}
 
@@ -221,7 +222,7 @@ export const BourbonForm = (props) => {
           </Form.Group>
         </Form>
 
-        <Button onClick={(evt) => {
+        <Button className="SaveButton" onClick={(evt) => {
           evt.preventDefault()
           console.log("FSOBJ", flavorSumObjects)
           constructNewBourbon()
@@ -231,6 +232,7 @@ export const BourbonForm = (props) => {
           Save Log
   </Button>
       </Form>
-    </>
+    
+    </div>
   )
 }

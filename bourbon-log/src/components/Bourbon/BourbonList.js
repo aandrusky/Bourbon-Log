@@ -40,44 +40,50 @@ export const BourbonList = (props) => {
 
     return (
         <>
-            <h1>BourbonList</h1>
 
-            <Button className="Back-Button" variant="secondary" onClick={() => props.history.push("/")}>Back</Button>
+            <div className="BourbonListContainer">
+            <h1 className="BourbonListHeader">BourbonList </h1>
 
-            <div className="listContainer">
+            
+
+            <div className="CardContainer">
                 {
                     logs.map(logObj => {
 
                         return (
 
-                            // I only want to return cards (logs) that include a matching user id to the localStorage.getItem.h
                             
                             
-                            <Card className="text-center" key={logObj.id} style={{ width: '18rem' }}>
+                            
+                            <Card className="text-center"  key={logObj.id} style={{ width: '13rem' }}>
 
                                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                                 <Card.Body>
                                     <Card.Title>{logObj.bourbonName}</Card.Title>
                                     <Card.Text >
-                                        <p>Proof {logObj.proof}</p>
+                                        <p>Proof: {logObj.proof}</p>
                                     </Card.Text>
-                                    <Button onClick={() => {
+                                    <Button className="Buttoncard" size="lg" onClick={() => {
                                         
                                         handleShow(logObj)
                                        
                                     }} 
-                                    variant="primary">
+                                    >
                                     View Log
                                     </Button>
                                 
                                 </Card.Body>
                             </Card>
-
+                            
                         )
                     })
                 }
 
-               
+                
+
+               </div>
+
+               <Button className="Back-Button" variant="secondary" size="lg" type="submit" block onClick={() => props.history.push("/")}>Back</Button>
 
                 {selectedBourbon.id
                     ? <Modal show={show} onHide={handleClose}

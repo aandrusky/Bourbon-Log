@@ -40,7 +40,19 @@ export const FlavorFunctionGenerator = (props) => {       //purpose of this func
                 datasets: [
                     {
                         label: 'flavor weight by %',
-                        data: flavorDataPoints
+                        data: flavorDataPoints,
+                        backgroundColor: [
+                            'rgba(242, 184, 75)',
+                            'rgba(242, 157, 53)',
+                            'rgba(191, 104, 54)',
+                            'rgba(125, 93, 70)',
+                            'rgba(38, 21, 15)',
+                            'rgba(87, 79, 79)',
+                            'rgba(140, 34, 24)',
+                            'rgba(140, 138, 125)',
+                            'rgba(89, 4, 4)',
+                            'rgba(189, 111, 71)',
+                          ]
                     }
                 ]
             }}/>
