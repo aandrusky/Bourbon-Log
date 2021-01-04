@@ -1,13 +1,14 @@
 import React from 'react';
 import { Logout } from "../auth/Logout"
 import Button from 'react-bootstrap/Button'
-import "../../Bourbon.css"
+
+// import "../../Bourbon.css"
 
 export const Home = (props) => {
     console.log("PROOOPS", props)
 
     return (
-        <>
+        
             <div className="homeContainer">
 
                 <h1 className="homeHeader">Welcome to your Bourbon.log(!)</h1>
@@ -29,6 +30,6 @@ export const Home = (props) => {
                         
                  
             </div>
-        </>
+        
     )
 }

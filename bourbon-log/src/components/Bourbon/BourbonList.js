@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card'
 import Modal from 'react-bootstrap/Modal'
 import Alert from 'react-bootstrap/Alert'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import "../../Bourbon.css"
 
 
 
@@ -62,7 +63,7 @@ export const BourbonList = (props) => {
                                 <Card.Body>
                                     <Card.Title>{logObj.bourbonName}</Card.Title>
                                     <Card.Text >
-                                        <p>Proof: {logObj.proof}</p>
+                                        <div className="Card_Data">Proof: {logObj.proof}</div>
                                     </Card.Text>
                                     <Button className="Buttoncard" size="lg" onClick={() => {
                                         

@@ -49,16 +49,8 @@
       "id": 9
     },
     {
-      "bourbonName": "Test Bourbon",
-      "distiller": "Heaven Hill",
-      "proof": "98.6",
-      "age": "Blend of 14 Year, 8 Year, and 7 Year Kentucky Straight Rye-Based Bourbons",
-      "batchNum": "n/a",
-      "userId": 5,
-      "id": 17
-    },
-    {
-      "bourbonName": "Eagle Rare Tester",
+      "id": 19,
+      "bourbonName": "Eagle Rare ",
       "distiller": "Buffalo Trace",
       "proof": "90",
       "age": "10",
@@ -66,8 +58,7 @@
       "owned": "",
       "price": "35",
       "rating": "8/10",
-      "userId": 5,
-      "id": 19
+      "userId": 5
     },
     {
       "bourbonName": "Stagg Jr.",
@@ -91,27 +82,22 @@
       "notes": "Expressly produced according to the exclusive Van Winkle family wheated-recipe and specially selected from barrels in the heart of the aging warehouses, this bourbon remained undisturbed for 15 years to age in deep-charred heavy oak untouched by human hands, unhurried by time.",
       "userId": 5,
       "id": 22
+    },
+    {
+      "id": 23,
+      "bourbonName": "Demo Day Bourbon!",
+      "distiller": "Pufferfish Reef",
+      "proof": "100",
+      "age": "6 months",
+      "batchNum": "44",
+      "owned": "",
+      "price": "50",
+      "notes": "This is great",
+      "rating": "10/10",
+      "userId": 5
     }
   ],
   "flavorsums": [
-    {
-      "flavorId": 1,
-      "flavorweight": 96,
-      "logId": 17,
-      "id": 4
-    },
-    {
-      "flavorId": 2,
-      "flavorweight": 95,
-      "logId": 17,
-      "id": 5
-    },
-    {
-      "flavorId": 3,
-      "flavorweight": 95,
-      "logId": 17,
-      "id": 6
-    },
     {
       "flavorId": 5,
       "flavorweight": 11,
@@ -207,6 +193,42 @@
       "flavorweight": 4,
       "logId": 22,
       "id": 28
+    },
+    {
+      "flavorId": 1,
+      "flavorweight": 39,
+      "logId": 23,
+      "id": 29
+    },
+    {
+      "flavorId": 2,
+      "flavorweight": 25,
+      "logId": 23,
+      "id": 30
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 57,
+      "logId": 23,
+      "id": 31
+    },
+    {
+      "flavorId": 4,
+      "flavorweight": 72,
+      "logId": 23,
+      "id": 32
+    },
+    {
+      "flavorId": 6,
+      "flavorweight": 75,
+      "logId": 23,
+      "id": 33
+    },
+    {
+      "flavorId": 10,
+      "flavorweight": 73,
+      "logId": 23,
+      "id": 34
     }
   ],
   "flavors": [
