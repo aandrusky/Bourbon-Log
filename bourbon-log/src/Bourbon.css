@@ -50,31 +50,40 @@ form label{
     color: whitesmoke
 }
 
-
-
-  .NotesHeader{
+.NotesHeader{
     text-align: center;
     color: whitesmoke
-  }
+}
 
 
- .BourbonListContainer{
+ .BourbonListContainer {
      display: flex;
      flex-direction: column;
     padding: 2rem;
     background-color: #282828;
-    height: 100%;
+    height: 90%;
     width: 100%;
-    justify-content: space-between;
-    
 } 
+
+.CardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 95%;
+    margin-top: 2%;
+    overflow: scroll;
+}
 
 .BourbonListHeader{
 color: whitesmoke;
 text-align: center
 }
 
+.backButtonDiv {
+  
+  padding: 3%;
 
+}
 
 .Button-list.btn.btn-primary.btn-lg {
     
@@ -92,12 +101,7 @@ text-align: center
 
 
 
-.CardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 25px;
-}
+
 
 .card{
     margin: .5rem; 

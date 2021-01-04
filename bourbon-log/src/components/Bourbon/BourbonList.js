@@ -55,7 +55,7 @@ export const BourbonList = (props) => {
                         return (
 
                             
-                            
+                            <div className="Cards">
                             
                             <Card className="text-center"  key={logObj.id} style={{ width: '13rem' }}>
 
@@ -76,16 +76,16 @@ export const BourbonList = (props) => {
                                 
                                 </Card.Body>
                             </Card>
-                            
+                            </div>
                         )
                     })
                 }
 
                 
 
-               </div>
+            </div>
 
-               <Button className="Back-Button" variant="secondary" size="lg" type="submit" block onClick={() => props.history.push("/")}>Back</Button>
+               
 
                 {selectedBourbon.id
                     ? <Modal show={show} onHide={handleClose}
@@ -168,6 +168,10 @@ export const BourbonList = (props) => {
                     </Modal>
                     : ""}
             </div>
+
+        <div className="backButtonDiv">
+            <Button className="Back-Button" variant="secondary" size="lg" type="submit" block onClick={() => props.history.push("/")}>Back</Button>
+        </div>
         </>
     )
 }
