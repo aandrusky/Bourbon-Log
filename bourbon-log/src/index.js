@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BourbonLog } from "./components/BourbonLog"
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import "./Bourbon.css"
+import 'bootstrap/dist/css/bootstrap.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <BourbonLog />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

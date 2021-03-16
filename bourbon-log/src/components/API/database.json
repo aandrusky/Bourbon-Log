@@ -1,0 +1,353 @@
+{
+  "users": [
+    {
+      "email": "alanandrusky@gmail.com",
+      "password": "123",
+      "name": "Alan Andrusky",
+      "id": 1
+    },
+    {
+      "email": "ehubert4545@gmail.com",
+      "password": "123",
+      "name": "Elizabeth Andrusky",
+      "id": 2
+    },
+    {
+      "email": "Ihateyoudad@neworder.org",
+      "password": "123",
+      "name": "Kylo Sven",
+      "id": 4
+    },
+    {
+      "email": "alanandrosky@gmail.com",
+      "password": "1234",
+      "name": "Allen Androsky",
+      "id": 5
+    }
+  ],
+  "logs": [
+    {
+      "id": 2,
+      "userId": 2,
+      "recordCreation": "2019-12-11",
+      "bourbonName": "Elijah Craig Barrel Proof",
+      "distiller": "Heaven Hill Distillery",
+      "proof": "122.2",
+      "age": "12 years",
+      "batchNum": "B519",
+      "owned": true,
+      "rating": "9/10",
+      "photo": ""
+    },
+    {
+      "bourbonName": "Russell's Reserve 2002",
+      "distiller": "Wild Turkey",
+      "proof": "98.6",
+      "age": "28",
+      "batchNum": "4395",
+      "userId": 5,
+      "id": 9
+    },
+    {
+      "id": 19,
+      "bourbonName": "Eagle Rare ",
+      "distiller": "Buffalo Trace",
+      "proof": "90",
+      "age": "10",
+      "batchNum": "n/a",
+      "owned": "",
+      "price": "35",
+      "rating": "8/10",
+      "userId": 5
+    },
+    {
+      "bourbonName": "Stagg Jr.",
+      "distiller": "Buffalo Trace",
+      "proof": "131.1",
+      "age": "8",
+      "batchNum": "15",
+      "price": "55",
+      "notes": "This is delicious",
+      "rating": "10",
+      "userId": 5,
+      "id": 21
+    },
+    {
+      "bourbonName": "Pappy Van Winkle's 15 Year Family Reserve",
+      "distiller": "Buffalo Trace",
+      "proof": "53.5",
+      "age": "15",
+      "batchNum": "2020",
+      "price": "129.99",
+      "notes": "Expressly produced according to the exclusive Van Winkle family wheated-recipe and specially selected from barrels in the heart of the aging warehouses, this bourbon remained undisturbed for 15 years to age in deep-charred heavy oak untouched by human hands, unhurried by time.",
+      "userId": 5,
+      "id": 22
+    },
+    {
+      "id": 23,
+      "bourbonName": "Demo Day Bourbon!",
+      "distiller": "Pufferfish Reef",
+      "proof": "100",
+      "age": "6 months",
+      "batchNum": "44",
+      "owned": "",
+      "price": "50",
+      "notes": "This is great",
+      "rating": "10/10",
+      "userId": 5
+    },
+    {
+      "bourbonName": "asdf",
+      "userId": 1,
+      "id": 24
+    },
+    {
+      "bourbonName": "wtert",
+      "userId": 1,
+      "id": 25
+    },
+    {
+      "bourbonName": "fgyuhmik",
+      "userId": 1,
+      "id": 26
+    },
+    {
+      "bourbonName": "TEST",
+      "userId": 1,
+      "id": 27
+    },
+    {
+      "bourbonName": "asdfafd",
+      "userId": 1,
+      "id": 29
+    },
+    {
+      "bourbonName": "asdfa",
+      "userId": 1,
+      "id": 30
+    },
+    {
+      "bourbonName": "asdfafsd",
+      "userId": 1,
+      "id": 31
+    },
+    {
+      "bourbonName": "asdfaf",
+      "userId": 1,
+      "id": 32
+    },
+    {
+      "bourbonName": "asdfsad",
+      "userId": 1,
+      "id": 33
+    },
+    {
+      "bourbonName": "sadfafd",
+      "userId": 1,
+      "id": 34
+    },
+    {
+      "userId": 1,
+      "id": 35
+    },
+    {
+      "userId": 1,
+      "id": 36
+    },
+    {
+      "userId": 1,
+      "id": 37
+    },
+    {
+      "userId": 1,
+      "id": 38
+    },
+    {
+      "userId": 1,
+      "id": 39
+    }
+  ],
+  "flavorsums": [
+    {
+      "flavorId": 5,
+      "flavorweight": 11,
+      "logId": 19,
+      "id": 10
+    },
+    {
+      "flavorId": 6,
+      "flavorweight": 13,
+      "logId": 19,
+      "id": 11
+    },
+    {
+      "flavorId": 7,
+      "flavorweight": 23,
+      "logId": 19,
+      "id": 12
+    },
+    {
+      "flavorId": 8,
+      "flavorweight": 5,
+      "logId": 19,
+      "id": 13
+    },
+    {
+      "flavorId": 1,
+      "flavorweight": 48,
+      "logId": 21,
+      "id": 17
+    },
+    {
+      "flavorId": 6,
+      "flavorweight": 40,
+      "logId": 21,
+      "id": 18
+    },
+    {
+      "flavorId": 10,
+      "flavorweight": 22,
+      "logId": 21,
+      "id": 19
+    },
+    {
+      "flavorId": 4,
+      "flavorweight": 9,
+      "logId": 21,
+      "id": 20
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 9,
+      "logId": 21,
+      "id": 21
+    },
+    {
+      "flavorId": 7,
+      "flavorweight": 29,
+      "logId": 21,
+      "id": 22
+    },
+    {
+      "flavorId": 1,
+      "flavorweight": 43,
+      "logId": 22,
+      "id": 23
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 35,
+      "logId": 22,
+      "id": 24
+    },
+    {
+      "flavorId": 5,
+      "flavorweight": 8,
+      "logId": 22,
+      "id": 25
+    },
+    {
+      "flavorId": 6,
+      "flavorweight": 20,
+      "logId": 22,
+      "id": 26
+    },
+    {
+      "flavorId": 7,
+      "flavorweight": 44,
+      "logId": 22,
+      "id": 27
+    },
+    {
+      "flavorId": 10,
+      "flavorweight": 4,
+      "logId": 22,
+      "id": 28
+    },
+    {
+      "flavorId": 1,
+      "flavorweight": 39,
+      "logId": 23,
+      "id": 29
+    },
+    {
+      "flavorId": 2,
+      "flavorweight": 25,
+      "logId": 23,
+      "id": 30
+    },
+    {
+      "flavorId": 3,
+      "flavorweight": 57,
+      "logId": 23,
+      "id": 31
+    },
+    {
+      "flavorId": 4,
+      "flavorweight": 72,
+      "logId": 23,
+      "id": 32
+    },
+    {
+      "flavorId": 6,
+      "flavorweight": 75,
+      "logId": 23,
+      "id": 33
+    },
+    {
+      "flavorId": 10,
+      "flavorweight": 73,
+      "logId": 23,
+      "id": 34
+    }
+  ],
+  "flavors": [
+    {
+      "id": 1,
+      "flavor": "Fruit"
+    },
+    {
+      "id": 2,
+      "flavor": "Floral"
+    },
+    {
+      "id": 3,
+      "flavor": "Oak"
+    },
+    {
+      "id": 4,
+      "flavor": "Nuts"
+    },
+    {
+      "id": 5,
+      "flavor": "Spicy"
+    },
+    {
+      "id": 6,
+      "flavor": "Maple"
+    },
+    {
+      "id": 7,
+      "flavor": "Sweet"
+    },
+    {
+      "id": 8,
+      "flavor": "Bread"
+    },
+    {
+      "id": 9,
+      "flavor": "Earthy"
+    },
+    {
+      "id": 10,
+      "flavor": "Grain"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": 1,
+      "userId": 1,
+      "logId": 2
+    }
+  ]
+}
